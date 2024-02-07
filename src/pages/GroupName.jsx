@@ -9,7 +9,7 @@ const GroupName = () => {
         </h1>
         <input
           type="text"
-          className=" bg-transparent border border-darkTeal mt-4 p-2 w-full rounded-lg xs:w-4/5 md:w-2/4 lg:w-1/3 focus:outline-none"
+          className="bg-transparent border border-darkTeal mt-4 p-2 w-full h-11 rounded-lg xs:w-4/5 md:w-2/4 lg:w-1/3 focus:outline-none"
         />
         <a
           href="#"

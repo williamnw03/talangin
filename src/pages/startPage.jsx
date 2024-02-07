@@ -2,7 +2,7 @@ import React from "react";
 
 const StartPage = () => {
   return (
-    <div className=" h-screen flex justify-center items-center">
+    <div className="h-screen flex justify-center items-center">
       <div className="flex flex-col w-full p-6 xs:items-center">
         <div className="w-full xs:w-2/3 md:w-2/5 lg:w-1/3 xl:w-1/4">
           <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
