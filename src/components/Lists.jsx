@@ -6,9 +6,9 @@ import List from "./List";
 const Lists = (props) => {
   return (
     <div className={props.className}>
-      <List />
-      <List />
-      <List />
+      <List content={props.content} />
+      <List content={props.content} />
+      <List content={props.content} />
     </div>
   );
 };
