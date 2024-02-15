@@ -1,7 +1,14 @@
 import React from "react";
 import Lists from "../components/Lists";
 
+import Select from "react-select";
+
 const ExtraCharge = () => {
+  const options = [
+    { value: "percent", label: "%" },
+    { value: "evenly", label: "$" },
+  ];
+
   return (
     <div className="h-screen flex justify-center items-center">
       <div className="flex flex-col w-full p-6 xs:items-center">
@@ -35,7 +42,7 @@ const ExtraCharge = () => {
             <label htmlFor="type" className="font-semibold">
               Quantity
             </label>
-            <select
+            {/* <select
               name="type"
               id="type"
               className="bg-transparent border border-darkTeal p-2 w-full h-11 rounded-lg focus:outline-none"
@@ -46,7 +53,24 @@ const ExtraCharge = () => {
               <option value="evenly" className="text-lg">
                 spread evenly
               </option>
-            </select>
+            </select> */}
+
+            <Select
+              options={options}
+              styles={{
+                control: (baseStyles, state) => ({
+                  ...baseStyles,
+                  backgroundColor: "transparent",
+                  borderColor: "#1B262C",
+                  padding: "o.5rem",
+                  width: "100%",
+                  height: "2.75rem",
+                  borderRadius: "0.5rem",
+                }),
+              }}
+              isSearchable={false}
+              placeholder={"Type"}
+            />
           </div>
 
           <button className="bg-darkTeal text-offWhite text-5xl h-11 aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity">
