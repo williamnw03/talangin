@@ -2,23 +2,22 @@ import React from "react";
 
 const StartPage = () => {
   return (
-    <div className="h-screen flex justify-center items-center">
-      <div className="flex flex-col w-full p-6 xs:items-center">
-        <div className="w-full xs:w-2/3 md:w-2/5 lg:w-1/3 xl:w-1/4">
-          <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="b" gradientTransform="rotate(90 .5 .5)">
-                <stop offset="0%" stop-color="#1B262C" />
-                <stop offset="100%" stop-color="#0F4C75" />
-              </linearGradient>
-            </defs>
-            <g clip-path="url(#a)">
-              <path fill="url(#b)">
-                <animate
-                  attributeName="d"
-                  dur={"5000ms"}
-                  repeatCount="indefinite"
-                  values="M855 612q-47 112-135.5 202t-227 113q-138.5 23-260-60.5t-131-225Q92 500 105 361t140.5-195Q373 110 491 137.5T739.5 198Q870 231 886 365.5T855 612Z;
+    <>
+      <div className="w-full xs:w-2/3 md:w-2/5 lg:w-1/3 xl:w-1/4">
+        <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="b" gradientTransform="rotate(90 .5 .5)">
+              <stop offset="0%" stop-color="#1B262C" />
+              <stop offset="100%" stop-color="#0F4C75" />
+            </linearGradient>
+          </defs>
+          <g clip-path="url(#a)">
+            <path fill="url(#b)">
+              <animate
+                attributeName="d"
+                dur={"5000ms"}
+                repeatCount="indefinite"
+                values="M855 612q-47 112-135.5 202t-227 113q-138.5 23-260-60.5t-131-225Q92 500 105 361t140.5-195Q373 110 491 137.5T739.5 198Q870 231 886 365.5T855 612Z;
                 
                 M869 636q5 136-119 194.5t-256.5 78q-132.5 19.5-214-85t-172-214Q17 500 68 361.5t185-173q134-34.5 252.5-53t202.5 67Q792 288 828 394t41 242Z;
                 
@@ -30,28 +29,27 @@ const StartPage = () => {
 
                 M855 612q-47 112-135.5 202t-227 113q-138.5 23-260-60.5t-131-225Q92 500 105 361t140.5-195Q373 110 491 137.5T739.5 198Q870 231 886 365.5T855 612Z;
                 "
-                ></animate>
-              </path>
-            </g>
-          </svg>
-          <div></div>
-        </div>
-        <h1 className="text-3xl font-light text-darkTeal md:text-4xl">
-          Welcome to <span className=" font-semibold">Talangin</span>
-        </h1>
-        <h2 className="font-light text-darkTeal mt-2 md:text-xl">
-          A website that allow you to{" "}
-          <span className="font-semibold"> split your bills easily.</span>
-        </h2>
-
-        <a
-          href="#"
-          className="bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center opacity-85 transition-opacity hover:opacity-100"
-        >
-          Start Now
-        </a>
+              ></animate>
+            </path>
+          </g>
+        </svg>
+        <div></div>
       </div>
-    </div>
+      <h1 className="text-3xl font-light text-darkTeal md:text-4xl">
+        Welcome to <span className=" font-semibold">Talangin</span>
+      </h1>
+      <h2 className="font-light text-darkTeal mt-2 md:text-xl">
+        A website that allow you to{" "}
+        <span className="font-semibold"> split your bills easily.</span>
+      </h2>
+
+      <a
+        href="#"
+        className="bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center opacity-85 transition-opacity hover:opacity-100"
+      >
+        Start Now
+      </a>
+    </>
   );
 };
 
