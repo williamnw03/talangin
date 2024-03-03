@@ -5,18 +5,19 @@ import MemberName from "./pages/MemberName.jsx";
 import ItemList from "./pages/ItemList.jsx";
 import ExtraCharge from "./pages/ExtraCharge.jsx";
 import LinkBoth from "./pages/LinkBoth.jsx";
+import Result from "./pages/Result.jsx";
 
 function App() {
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="min-h-screen flex mt-8">
       <div className="flex flex-col w-full p-6 xs:items-center">
-        {/* <ExtraCharge /> */}
         {/* <StartPage /> */}
         {/* <GroupName /> */}
         {/* <MemberName /> */}
         {/* <ItemList /> */}
-        {/* <ExtraCharge/> */}
-        <LinkBoth />
+        {/* <ExtraCharge /> */}
+        {/* <LinkBoth /> */}
+        <Result />
       </div>
     </div>
   );

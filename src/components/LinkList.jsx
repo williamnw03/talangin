@@ -15,8 +15,8 @@ const LinkList = () => {
   };
 
   return (
-    <div className="flex items-start gap-2">
-      <div className="flex flex-col gap-2 w-3/5">
+    <div className="flex flex-col items-start gap-2 xs:flex-row">
+      <div className="flex flex-col w-full gap-2 xs:w-3/5">
         <div className="flex justify-between items-center w-full min-h-11 px-4 py-1 bg-offWhite text-darkTeal rounded-md">
           <p className="text-md text-light text-center break-all">
             Budi Susanto
@@ -39,7 +39,7 @@ const LinkList = () => {
           </div>
         </div>
       </div>
-      <div className="w-2/5">
+      <div className="w-full xs:w-2/5">
         <Select
           options={options}
           styles={{

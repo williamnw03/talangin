@@ -1,24 +1,19 @@
 import React from "react";
+import ResultLists from "../components/ResultLists";
 
-import LinkLists from "../components/LinkLists";
-
-import Select from "react-select";
-
-const LinkBoth = () => {
-  const options = [
-    { value: "percent", label: "%" },
-    { value: "evenly", label: "$" },
-  ];
-
+const Result = () => {
   return (
     <>
       <div className="flex flex-col xs:w-4/5 md:w-3/4 lg:w-1/2">
         <h1 className="text-3xl font-light text-center text-darkTeal md:text-4xl">
-          Link The <span className=" font-semibold">Items</span> &{" "}
-          <span className=" font-semibold">Member</span>
+          <span className=" font-semibold">Result</span>
         </h1>
+        <p className="mt-4">
+          Group Name : <span className="font-semibold">Power Rangers</span>
+        </p>
 
-        <LinkLists />
+        <ResultLists />
+
         <div className="flex justify-between flex-wrap">
           <a
             href="#"
@@ -38,4 +33,4 @@ const LinkBoth = () => {
   );
 };
 
-export default LinkBoth;
+export default Result;

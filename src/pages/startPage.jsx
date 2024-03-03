@@ -7,11 +7,11 @@ const StartPage = () => {
         <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="b" gradientTransform="rotate(90 .5 .5)">
-              <stop offset="0%" stop-color="#1B262C" />
-              <stop offset="100%" stop-color="#0F4C75" />
+              <stop offset="0%" stopColor="#1B262C" />
+              <stop offset="100%" stopColor="#0F4C75" />
             </linearGradient>
           </defs>
-          <g clip-path="url(#a)">
+          <g clipPath="url(#a)">
             <path fill="url(#b)">
               <animate
                 attributeName="d"
