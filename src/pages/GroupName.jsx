@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const GroupName = () => {
   return (
@@ -10,12 +11,12 @@ const GroupName = () => {
         type="text"
         className="bg-transparent border border-darkTeal mt-4 p-2 w-full h-11 rounded-lg xs:w-4/5 md:w-2/4 lg:w-1/3 focus:outline-none"
       />
-      <a
-        href="#"
-        className="bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center opacity-85 transition-opacity hover:opacity-100"
+      <Link
+        to="/membername"
+        className="bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-blue transition-colors"
       >
         Next
-      </a>
+      </Link>
     </>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const StartPage = () => {
   return (
@@ -43,12 +44,12 @@ const StartPage = () => {
         <span className="font-semibold"> split your bills easily.</span>
       </h2>
 
-      <a
-        href="#"
-        className="bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center opacity-85 transition-opacity hover:opacity-100"
+      <Link
+        to="/groupname"
+        className="bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-blue transition-colors"
       >
         Start Now
-      </a>
+      </Link>
     </>
   );
 };

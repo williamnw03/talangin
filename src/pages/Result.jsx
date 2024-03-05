@@ -15,7 +15,7 @@ const Result = () => {
 
         <ResultLists />
 
-        <NextBackButtons />
+        <NextBackButtons next={"/"} back={"/linkboth"} />
       </div>
     </>
   );

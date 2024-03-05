@@ -23,17 +23,17 @@ const LinkList = () => {
           </p>
         </div>
         <div className="flex flex-wrap gap-1 w-full">
-          <div className="flex justify-between items-center w-max px-2 bg-offWhite text-darkTeal rounded-md opacity-90 hover:opacity-100 transition-opacity">
+          <div className="flex justify-between items-center w-max px-2 bg-offWhite text-darkTeal rounded-md hover:bg-blue hover:text-offWhite transition-colors">
             <p className="text-xs text-light break-all">asdasdas asdasd asd</p>
             <button className=" text-sm p-1 font-medium">X</button>
           </div>
 
-          <div className="flex justify-between items-center w-max px-2 bg-offWhite text-darkTeal rounded-md opacity-90 hover:opacity-100 transition-opacity">
+          <div className="flex justify-between items-center w-max px-2 bg-offWhite text-darkTeal rounded-md hover:bg-blue hover:text-offWhite transition-colors">
             <p className="text-xs text-light break-all">TEST</p>
             <button className=" text-sm p-1 font-medium">X</button>
           </div>
 
-          <div className="flex justify-between items-center w-max px-2 bg-offWhite text-darkTeal rounded-md opacity-90 hover:opacity-100 transition-opacity">
+          <div className="flex justify-between items-center w-max px-2 bg-offWhite text-darkTeal rounded-md hover:bg-blue hover:text-offWhite transition-colors">
             <p className="text-xs text-light break-all">TEST</p>
             <button className=" text-sm p-1 font-medium">X</button>
           </div>

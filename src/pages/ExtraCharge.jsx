@@ -56,18 +56,9 @@ const ExtraCharge = () => {
                   height: "2.75rem",
                   borderRadius: "0.5rem",
                 }),
-
-                option: (baseStyles, state) => ({
-                  ...baseStyles,
-
-                  backgroundColor: state.isSelected ? "#1B262C" : "#FAF9F6",
-                  color: state.isSelected ? "#FAF9F6" : "#1B262C",
-                }),
               }}
               isSearchable={false}
               placeholder={"Type"}
-              // hideSelectedOptions={true}
-              closeMenuOnSelect={false}
             />
           </div>
 
@@ -79,7 +70,7 @@ const ExtraCharge = () => {
           className="flex flex-col gap-2 w-full bg-darkTeal p-4 mt-4 rounded-md"
           content="Tax | Rp 100.000 | %"
         />
-        <NextBackButtons />
+        <NextBackButtons next={"/linkboth"} back={"/itemlist"} />
       </div>
     </>
   );

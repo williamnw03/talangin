@@ -51,7 +51,7 @@ const ItemList = () => {
           className="flex flex-col gap-2 w-full bg-darkTeal p-4 mt-4 rounded-md"
           content="Ayam Penyet | Rp 100.000 | 5Q"
         />
-        <NextBackButtons />
+        <NextBackButtons next={"/extracharge"} back={"/membername"} />
       </div>
     </>
   );

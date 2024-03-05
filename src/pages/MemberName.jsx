@@ -24,7 +24,7 @@ const MemberName = () => {
           className="flex flex-col gap-2 w-full bg-darkTeal p-4 mt-4 rounded-md"
           content="Andi Susanto"
         />
-        <NextBackButtons />
+        <NextBackButtons next={"/itemlist"} back={"/groupname"} />
       </div>
     </>
   );

@@ -1,20 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const NextBackButtons = () => {
+const NextBackButtons = ({ next, back }) => {
   return (
     <div className="flex justify-between flex-wrap">
-      <a
-        href="#"
-        className=" inline-block bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center opacity-85 transition-opacity hover:opacity-100"
+      <Link
+        to={back}
+        className=" inline-block bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-blue transition-colors"
       >
         Back
-      </a>
-      <a
-        href="#"
-        className=" inline-block bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center opacity-85 transition-opacity hover:opacity-100"
+      </Link>
+      <Link
+        to={next}
+        className=" inline-block bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-blue transition-colors"
       >
         Next
-      </a>
+      </Link>
     </div>
   );
 };

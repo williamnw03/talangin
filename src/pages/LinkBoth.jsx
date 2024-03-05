@@ -20,7 +20,7 @@ const LinkBoth = () => {
         </h1>
 
         <LinkLists />
-        <NextBackButtons />
+        <NextBackButtons next={"/result"} back={"/extracharge"} />
       </div>
     </>
   );
