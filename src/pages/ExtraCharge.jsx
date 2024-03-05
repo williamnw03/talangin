@@ -2,6 +2,7 @@ import React from "react";
 import Lists from "../components/Lists";
 
 import Select from "react-select";
+import NextBackButtons from "../components/NextBackButtons";
 
 const ExtraCharge = () => {
   const options = [
@@ -78,20 +79,7 @@ const ExtraCharge = () => {
           className="flex flex-col gap-2 w-full bg-darkTeal p-4 mt-4 rounded-md"
           content="Tax | Rp 100.000 | %"
         />
-        <div className="flex justify-between flex-wrap">
-          <a
-            href="#"
-            className=" inline-block bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center opacity-85 transition-opacity hover:opacity-100"
-          >
-            Back
-          </a>
-          <a
-            href="#"
-            className=" inline-block bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center opacity-85 transition-opacity hover:opacity-100"
-          >
-            Next
-          </a>
-        </div>
+        <NextBackButtons />
       </div>
     </>
   );

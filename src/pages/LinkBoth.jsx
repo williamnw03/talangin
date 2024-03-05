@@ -3,6 +3,7 @@ import React from "react";
 import LinkLists from "../components/LinkLists";
 
 import Select from "react-select";
+import NextBackButtons from "../components/NextBackButtons";
 
 const LinkBoth = () => {
   const options = [
@@ -19,20 +20,7 @@ const LinkBoth = () => {
         </h1>
 
         <LinkLists />
-        <div className="flex justify-between flex-wrap">
-          <a
-            href="#"
-            className=" inline-block bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center opacity-85 transition-opacity hover:opacity-100"
-          >
-            Back
-          </a>
-          <a
-            href="#"
-            className=" inline-block bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center opacity-85 transition-opacity hover:opacity-100"
-          >
-            Next
-          </a>
-        </div>
+        <NextBackButtons />
       </div>
     </>
   );
