@@ -17,23 +17,23 @@ const LinkList = () => {
   return (
     <div className="flex flex-col items-start gap-2 xs:flex-row">
       <div className="flex flex-col w-full gap-2 xs:w-3/5">
-        <div className="flex justify-between items-center w-full min-h-11 px-4 py-1 bg-offWhite text-darkTeal rounded-md">
+        <div className="flex justify-between items-center w-full min-h-11 px-4 py-1 bg-offWhite text-firstColor rounded-md">
           <p className="text-md text-light text-center break-all">
             Budi Susanto
           </p>
         </div>
         <div className="flex flex-wrap gap-1 w-full">
-          <div className="flex justify-between items-center w-max px-2 bg-offWhite text-darkTeal rounded-md hover:bg-blue hover:text-offWhite transition-colors">
+          <div className="flex justify-between items-center w-max px-2 bg-offWhite text-firstColor rounded-md hover:bg-thirdColor hover:text-offWhite transition-colors">
             <p className="text-xs text-light break-all">asdasdas asdasd asd</p>
             <button className=" text-sm p-1 font-medium">X</button>
           </div>
 
-          <div className="flex justify-between items-center w-max px-2 bg-offWhite text-darkTeal rounded-md hover:bg-blue hover:text-offWhite transition-colors">
+          <div className="flex justify-between items-center w-max px-2 bg-offWhite text-firstColor rounded-md hover:bg-thirdColor hover:text-offWhite transition-colors">
             <p className="text-xs text-light break-all">TEST</p>
             <button className=" text-sm p-1 font-medium">X</button>
           </div>
 
-          <div className="flex justify-between items-center w-max px-2 bg-offWhite text-darkTeal rounded-md hover:bg-blue hover:text-offWhite transition-colors">
+          <div className="flex justify-between items-center w-max px-2 bg-offWhite text-firstColor rounded-md hover:bg-thirdColor hover:text-offWhite transition-colors">
             <p className="text-xs text-light break-all">TEST</p>
             <button className=" text-sm p-1 font-medium">X</button>
           </div>

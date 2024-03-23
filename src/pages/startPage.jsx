@@ -36,17 +36,17 @@ const StartPage = () => {
         </svg>
         <div></div>
       </div>
-      <h1 className="text-3xl font-light text-darkTeal md:text-4xl">
+      <h1 className="text-3xl font-light text-firstColor md:text-4xl">
         Welcome to <span className=" font-semibold">Talangin</span>
       </h1>
-      <h2 className="font-light text-darkTeal mt-2 md:text-xl">
+      <h2 className="font-light text-firstColor mt-2 md:text-xl">
         A website that allow you to{" "}
         <span className="font-semibold"> split your bills easily.</span>
       </h2>
 
       <Link
         to="/groupname"
-        className="bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-blue transition-colors"
+        className="bg-firstColor text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-thirdColor transition-colors"
       >
         Start Now
       </Link>

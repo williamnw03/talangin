@@ -6,13 +6,13 @@ const NextBackButtons = ({ next, back }) => {
     <div className="flex justify-between flex-wrap">
       <Link
         to={back}
-        className=" inline-block bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-blue transition-colors"
+        className=" inline-block bg-firstColor text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-thirdColor transition-colors"
       >
         Back
       </Link>
       <Link
         to={next}
-        className=" inline-block bg-darkTeal text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-blue transition-colors"
+        className=" inline-block bg-firstColor text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-thirdColor transition-colors"
       >
         Next
       </Link>

@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        darkTeal: "#1B262C",
-        navy: "#0F4C75",
-        blue: "#3282B8",
-        lightBlue: "#BBE1FA",
+        firstColor: "#0096c7",
+        secondColor: "#00b4d8",
+        thirdColor: "#48cae4",
+        fourthColor: "#90e0ef",
         offWhite: "#FAF9F6",
       },
 
