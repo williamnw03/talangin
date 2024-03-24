@@ -1,7 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
+import { groupActions } from "../store/group-slice";
 
 const GroupName = () => {
+  const dispatch = useDispatch();
+
+  // Group Name
+  const groupName = useSelector((state) => state.group.name);
+
+  // change input group name
+  const changeGroupName = (e) => {
+    dispatch(groupActions.changeName(e.target.value));
+  };
+
   return (
     <>
       <h1 className="text-3xl font-light text-firstColor md:text-4xl">
@@ -10,6 +23,8 @@ const GroupName = () => {
       <input
         type="text"
         className="bg-transparent text-firstColor border border-firstColor mt-4 p-2 w-full h-11 rounded-lg xs:w-4/5 md:w-2/4 lg:w-1/3 focus:outline-none"
+        onChange={changeGroupName}
+        value={groupName}
       />
       <Link
         to="/membername"

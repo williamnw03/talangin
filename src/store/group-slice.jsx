@@ -12,4 +12,6 @@ const groupSlice = createSlice({
   },
 });
 
+export const groupActions = groupSlice.actions;
+
 export default groupSlice;
