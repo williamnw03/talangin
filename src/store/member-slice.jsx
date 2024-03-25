@@ -3,17 +3,21 @@ import { createSlice } from "@reduxjs/toolkit";
 const memberSlice = createSlice({
   name: "member",
   initialState: {
-    members: [
-      {
-        id: "",
-        name: "",
-        items: [],
-        extraCharges: [],
-        totalPayment: 0,
-      },
-    ],
+    temp: {
+      id: "",
+      name: "",
+      items: [],
+      extraCharges: [],
+      totalPayment: 0,
+    },
+    name: "",
+    members: [],
   },
   reducers: {
+    changeName: (state, action) => {
+      state.name = action.payload;
+    },
+
     addMember: (state, action) => {
       state.members.push(action.payload);
     },
@@ -63,4 +67,5 @@ const memberSlice = createSlice({
   },
 });
 
+export const memberActions = memberSlice.actions;
 export default memberSlice;
