@@ -72,7 +72,7 @@ const MemberName = () => {
             +
           </button>
         </div>
-        <Lists data={members} remove={removeMember} />
+        <Lists type="member-name" data={members} remove={removeMember} />
         <NextBackButtons next={"/itemlist"} back={"/groupname"} />
       </div>
     </>

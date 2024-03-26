@@ -3,11 +3,31 @@ import { createSlice } from "@reduxjs/toolkit";
 const itemSlice = createSlice({
   name: "item",
   initialState: {
-    items: [
-      { id: "", name: "", totalPrice: "", quantity: "", currentQuantity: "" },
-    ],
+    temp: {
+      id: "",
+      name: "",
+      totalPrice: "",
+      quantity: "",
+      currentQuantity: "",
+    },
+    name: "",
+    totalPrice: 0,
+    quantity: 0,
+    items: [],
   },
   reducers: {
+    changeName: (state, action) => {
+      state.name = action.payload;
+    },
+
+    changeTotalPrice: (state, action) => {
+      state.totalPrice = action.payload;
+    },
+
+    changeQuantity: (state, action) => {
+      state.quantity = action.payload;
+    },
+
     addItem: (state, action) => {
       state.items.push(action.payload);
     },
@@ -27,5 +47,7 @@ const itemSlice = createSlice({
     },
   },
 });
+
+export const itemActions = itemSlice.actions;
 
 export default itemSlice;
