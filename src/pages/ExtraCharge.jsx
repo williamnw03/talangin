@@ -1,15 +1,79 @@
 import React from "react";
 import Lists from "../components/Lists";
 
+// Redux
+import { useDispatch, useSelector } from "react-redux";
+import { extraChargeActions } from "../store/extraCharge-slice";
+
+// Id Generate
+import generateUniqueId from "generate-unique-id";
+
 import Select from "react-select";
 import NextBackButtons from "../components/NextBackButtons";
 
 const ExtraCharge = () => {
-  const options = [
-    { value: "percent", label: "%" },
-    { value: "evenly", label: "$" },
-  ];
+  // generate id
+  const id = generateUniqueId();
 
+  const dispatch = useDispatch();
+
+  // options
+  const options = useSelector((state) => state.extraCharge.options);
+
+  // extraCharge Name
+  const extraChargeName = useSelector((state) => state.extraCharge.name);
+  // extraCharge Total Price
+  const extraChargeTotalPrice = useSelector(
+    (state) => state.extraCharge.totalPrice
+  );
+  // extraCharge Type
+  const extraChargeType = useSelector((state) => state.extraCharge.type);
+
+  // extraCharge Template
+  const extraChargeTemp = useSelector((state) => state.extraCharge.temp);
+  // Extra Charges
+  const extraCharges = useSelector((state) => state.extraCharge.extraCharges);
+
+  // change extraCharge
+  const changeExtraChargeName = (e) => {
+    dispatch(extraChargeActions.changeName(e.target.value));
+  };
+
+  // change extraCharge total price
+  const changeExtraChargeTotalPrice = (e) => {
+    // Check minus value
+    if (parseInt(e.target.value) < 0) {
+      return false;
+    }
+
+    // check front 0
+    if (e.target.value.length > 1 && e.target.value[0] === "0") {
+      return false;
+    }
+
+    dispatch(extraChargeActions.changeTotalPrice(e.target.value));
+  };
+
+  const changeExtraChargeType = (value) => {
+    dispatch(extraChargeActions.changeType(value));
+  };
+
+  // Add New Extra Charge
+  const addExtraCharge = (name, totalPrice, type) => {
+    if (name && totalPrice && type) {
+      const extraCharge = { ...extraChargeTemp };
+      extraCharge.id = id;
+      extraCharge.name = name;
+      extraCharge.totalPrice = totalPrice;
+      extraCharge.type = type;
+      dispatch(extraChargeActions.addExtraCharge(extraCharge));
+    }
+  };
+
+  // Remove Extra Charge
+  const removeExtraCharge = (id) => {
+    dispatch(extraChargeActions.removeExtraCharge(id));
+  };
   return (
     <>
       <div className="flex flex-col xs:w-4/5 md:w-3/4 lg:w-1/2">
@@ -25,17 +89,21 @@ const ExtraCharge = () => {
               type="text"
               id="name"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
+              onChange={changeExtraChargeName}
+              value={extraChargeName}
             />
           </div>
 
           <div className="basis-2/5">
-            <label htmlFor="price" className="font-semibold">
-              Price
+            <label htmlFor="totalPrice" className="font-semibold">
+              Total Price
             </label>
             <input
               type="number"
-              id="price"
+              id="totalPrice"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
+              onChange={changeExtraChargeTotalPrice}
+              value={extraChargeTotalPrice}
             />
           </div>
 
@@ -59,16 +127,28 @@ const ExtraCharge = () => {
               }}
               isSearchable={false}
               placeholder={"Type"}
+              onChange={changeExtraChargeType}
+              value={extraChargeType}
             />
           </div>
 
-          <button className="bg-firstColor text-offWhite text-5xl h-11 aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity">
+          <button
+            className="bg-firstColor text-offWhite text-5xl h-11 aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity"
+            onClick={() =>
+              addExtraCharge(
+                extraChargeName,
+                extraChargeTotalPrice,
+                extraChargeType
+              )
+            }
+          >
             +
           </button>
         </div>
         <Lists
-          className="flex flex-col gap-2 w-full bg-firstColor p-4 mt-4 rounded-md"
-          content="Tax | Rp 100.000 | %"
+          type="extraCharge-list"
+          data={extraCharges}
+          remove={removeExtraCharge}
         />
         <NextBackButtons next={"/linkboth"} back={"/itemlist"} />
       </div>

@@ -3,9 +3,29 @@ import { createSlice } from "@reduxjs/toolkit";
 const extraChargeSlice = createSlice({
   name: "extraCharge",
   initialState: {
-    extraCharges: [{ id: "", name: "", totalPrice: "", type: "" }],
+    temp: { id: "", name: "", totalPrice: "", type: "" },
+    options: [
+      { value: "percent", label: "%" },
+      { value: "evenly", label: "$" },
+    ],
+    name: "",
+    totalPrice: "",
+    type: "",
+    extraCharges: [],
   },
   reducers: {
+    changeName: (state, action) => {
+      state.name = action.payload;
+    },
+
+    changeTotalPrice: (state, action) => {
+      state.totalPrice = action.payload;
+    },
+
+    changeType: (state, action) => {
+      state.type = action.payload;
+    },
+
     addExtraCharge: (state, action) => {
       state.extraCharges.push(action.payload);
     },
@@ -17,5 +37,7 @@ const extraChargeSlice = createSlice({
     },
   },
 });
+
+export const extraChargeActions = extraChargeSlice.actions;
 
 export default extraChargeSlice;

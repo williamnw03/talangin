@@ -17,6 +17,10 @@ const Lists = (props) => {
           if (props.type === "item-list") {
             content = `${e.name} | Rp.${e.totalPrice} | ${e.quantity} Q`;
           }
+
+          if (props.type === "extraCharge-list") {
+            content = `${e.name} | Rp.${e.totalPrice} | ${e.type.label}`;
+          }
           return (
             <List
               key={e.id}
