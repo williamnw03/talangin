@@ -8,6 +8,9 @@ import { extraChargeActions } from "../store/extraCharge-slice";
 // Id Generate
 import generateUniqueId from "generate-unique-id";
 
+// Number Format
+import { NumericFormat } from "react-number-format";
+
 import Select from "react-select";
 import NextBackButtons from "../components/NextBackButtons";
 
@@ -41,17 +44,19 @@ const ExtraCharge = () => {
 
   // change extraCharge total price
   const changeExtraChargeTotalPrice = (e) => {
+    let number = e.target.value.replaceAll(",", "");
+
     // Check minus value
-    if (parseInt(e.target.value) < 0) {
+    if (parseInt(number) < 0) {
       return false;
     }
 
     // check front 0
-    if (e.target.value.length > 1 && e.target.value[0] === "0") {
+    if (number.length > 1 && number[0] === "0") {
       return false;
     }
 
-    dispatch(extraChargeActions.changeTotalPrice(e.target.value));
+    dispatch(extraChargeActions.changeTotalPrice(number));
   };
 
   const changeExtraChargeType = (value) => {
@@ -98,12 +103,13 @@ const ExtraCharge = () => {
             <label htmlFor="totalPrice" className="font-semibold">
               Total Price
             </label>
-            <input
-              type="number"
+            <NumericFormat
               id="totalPrice"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
               onChange={changeExtraChargeTotalPrice}
               value={extraChargeTotalPrice}
+              thousandSeparator=","
+              allowNegative={false}
             />
           </div>
 

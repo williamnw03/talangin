@@ -4,6 +4,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { itemActions } from "../store/item-slice";
 
+// Number Format
+import { NumericFormat } from "react-number-format";
+
 // Id Generate
 import generateUniqueId from "generate-unique-id";
 
@@ -36,32 +39,36 @@ const ItemList = () => {
 
   // change item total price
   const changeItemTotalPrice = (e) => {
+    let number = e.target.value.replaceAll(",", "");
+
     // Check minus value
-    if (parseInt(e.target.value) < 0) {
+    if (parseInt(number) < 0) {
       return false;
     }
 
     // check front 0
-    if (e.target.value.length > 1 && e.target.value[0] === "0") {
+    if (number.length > 1 && number[0] === "0") {
       return false;
     }
 
-    dispatch(itemActions.changeTotalPrice(e.target.value));
+    dispatch(itemActions.changeTotalPrice(number));
   };
 
   // change item quantity
   const changeItemQuantity = (e) => {
+    let number = e.target.value.replaceAll(",", "");
+
     // Check minus value
-    if (parseInt(e.target.value) < 0) {
+    if (parseInt(number) < 0) {
       return false;
     }
 
     // check front 0
-    if (e.target.value.length > 1 && e.target.value[0] === "0") {
+    if (number.length > 1 && number[0] === "0") {
       return false;
     }
 
-    dispatch(itemActions.changeQuantity(e.target.value));
+    dispatch(itemActions.changeQuantity(number));
   };
 
   // Add New Item
@@ -105,12 +112,13 @@ const ItemList = () => {
             <label htmlFor="totalPrice" className="font-semibold">
               Total Price
             </label>
-            <input
-              type="number"
+            <NumericFormat
               id="totalPrice"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
               onChange={changeItemTotalPrice}
               value={itemTotalPrice}
+              thousandSeparator=","
+              allowNegative={false}
             />
           </div>
 
@@ -118,12 +126,13 @@ const ItemList = () => {
             <label htmlFor="quantity" className="font-semibold">
               Quantity
             </label>
-            <input
-              type="number"
+            <NumericFormat
               id="quantity"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
               onChange={changeItemQuantity}
               value={itemQuantity}
+              thousandSeparator=","
+              allowNegative={false}
             />
           </div>
 
