@@ -75,6 +75,13 @@ const ExtraCharge = () => {
     }
   };
 
+  // Detect Enter Key
+  const EnterKey = (e, name, totalPrice, type) => {
+    if (e.key === "Enter") {
+      addExtraCharge(name, totalPrice, type);
+    }
+  };
+
   // Remove Extra Charge
   const removeExtraCharge = (id) => {
     dispatch(extraChargeActions.removeExtraCharge(id));
@@ -95,6 +102,14 @@ const ExtraCharge = () => {
               id="name"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
               onChange={changeExtraChargeName}
+              onKeyDown={(e) =>
+                EnterKey(
+                  e,
+                  extraChargeName,
+                  extraChargeTotalPrice,
+                  extraChargeType
+                )
+              }
               value={extraChargeName}
             />
           </div>
@@ -107,6 +122,14 @@ const ExtraCharge = () => {
               id="totalPrice"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
               onChange={changeExtraChargeTotalPrice}
+              onKeyDown={(e) =>
+                EnterKey(
+                  e,
+                  extraChargeName,
+                  extraChargeTotalPrice,
+                  extraChargeType
+                )
+              }
               value={extraChargeTotalPrice}
               thousandSeparator=","
               allowNegative={false}

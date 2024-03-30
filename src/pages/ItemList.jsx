@@ -50,7 +50,6 @@ const ItemList = () => {
     if (number.length > 1 && number[0] === "0") {
       return false;
     }
-
     dispatch(itemActions.changeTotalPrice(number));
   };
 
@@ -83,6 +82,13 @@ const ItemList = () => {
     }
   };
 
+  // Detect Enter Key
+  const EnterKey = (e, name, totalPrice, quantity) => {
+    if (e.key === "Enter") {
+      addItem(name, totalPrice, quantity);
+    }
+  };
+
   // Remove Item
   const removeItem = (id) => {
     dispatch(itemActions.removeItem(id));
@@ -104,6 +110,9 @@ const ItemList = () => {
               id="name"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
               onChange={changeItemName}
+              onKeyDown={(e) =>
+                EnterKey(e, itemName, itemTotalPrice, itemQuantity)
+              }
               value={itemName}
             />
           </div>
@@ -116,6 +125,9 @@ const ItemList = () => {
               id="totalPrice"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
               onChange={changeItemTotalPrice}
+              onKeyDown={(e) =>
+                EnterKey(e, itemName, itemTotalPrice, itemQuantity)
+              }
               value={itemTotalPrice}
               thousandSeparator=","
               allowNegative={false}
@@ -130,6 +142,9 @@ const ItemList = () => {
               id="quantity"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
               onChange={changeItemQuantity}
+              onKeyDown={(e) =>
+                EnterKey(e, itemName, itemTotalPrice, itemQuantity)
+              }
               value={itemQuantity}
               thousandSeparator=","
               allowNegative={false}

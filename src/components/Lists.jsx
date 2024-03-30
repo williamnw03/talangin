@@ -3,6 +3,9 @@ import React from "react";
 // Components
 import List from "./List";
 
+// Number Format
+import { NumericFormat } from "react-number-format";
+
 const Lists = (props) => {
   return (
     <div className="flex flex-col gap-2 w-full bg-firstColor p-4 mt-4 rounded-md">
@@ -15,11 +18,49 @@ const Lists = (props) => {
           }
 
           if (props.type === "item-list") {
-            content = `${e.name} | Rp.${e.totalPrice} | ${e.quantity} Q`;
+            const totalPrice = (
+              <NumericFormat
+                value={e.totalPrice}
+                thousandSeparator=","
+                allowNegative={false}
+                displayType="text"
+                renderText={(value) => <span>{value}</span>}
+              />
+            );
+
+            const quantity = (
+              <NumericFormat
+                value={e.quantity}
+                thousandSeparator=","
+                allowNegative={false}
+                displayType="text"
+                renderText={(value) => <span>{value}</span>}
+              />
+            );
+
+            content = (
+              <span>
+                {e.name} | Rp{totalPrice} | {quantity} Q
+              </span>
+            );
           }
 
           if (props.type === "extraCharge-list") {
-            content = `${e.name} | Rp.${e.totalPrice} | ${e.type.label}`;
+            const totalPrice = (
+              <NumericFormat
+                value={e.totalPrice}
+                thousandSeparator=","
+                allowNegative={false}
+                displayType="text"
+                renderText={(value) => <span>{value}</span>}
+              />
+            );
+
+            content = (
+              <span>
+                {e.name} | Rp{totalPrice} | {e.type.value}
+              </span>
+            );
           }
           return (
             <List
