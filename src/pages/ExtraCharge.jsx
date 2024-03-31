@@ -43,20 +43,18 @@ const ExtraCharge = () => {
   };
 
   // change extraCharge total price
-  const changeExtraChargeTotalPrice = (e) => {
-    let number = e.target.value.replaceAll(",", "");
-
+  const changeExtraChargeTotalPrice = (v, s) => {
     // Check minus value
-    if (parseInt(number) < 0) {
+    if (parseInt(v.floatValue) < 0) {
       return false;
     }
 
     // check front 0
-    if (number.length > 1 && number[0] === "0") {
+    if (v.floatValue.length > 1 && v.floatValue[0] === "0") {
       return false;
     }
 
-    dispatch(extraChargeActions.changeTotalPrice(number));
+    dispatch(extraChargeActions.changeTotalPrice(v.floatValue));
   };
 
   const changeExtraChargeType = (value) => {
@@ -121,7 +119,7 @@ const ExtraCharge = () => {
             <NumericFormat
               id="totalPrice"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
-              onChange={changeExtraChargeTotalPrice}
+              onValueChange={changeExtraChargeTotalPrice}
               onKeyDown={(e) =>
                 EnterKey(
                   e,

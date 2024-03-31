@@ -38,36 +38,32 @@ const ItemList = () => {
   };
 
   // change item total price
-  const changeItemTotalPrice = (e) => {
-    let number = e.target.value.replaceAll(",", "");
-
+  const changeItemTotalPrice = (v, s) => {
     // Check minus value
-    if (parseInt(number) < 0) {
+    if (parseInt(v.floatValue) < 0) {
       return false;
     }
 
     // check front 0
-    if (number.length > 1 && number[0] === "0") {
+    if (v.floatValue.length > 1 && v.floatValue[0] === "0") {
       return false;
     }
-    dispatch(itemActions.changeTotalPrice(number));
+    dispatch(itemActions.changeTotalPrice(v.floatValue));
   };
 
   // change item quantity
-  const changeItemQuantity = (e) => {
-    let number = e.target.value.replaceAll(",", "");
-
+  const changeItemQuantity = (v, s) => {
     // Check minus value
-    if (parseInt(number) < 0) {
+    if (parseInt(v.floatValue) < 0) {
       return false;
     }
 
     // check front 0
-    if (number.length > 1 && number[0] === "0") {
+    if (v.floatValue.length > 1 && v.floatValue[0] === "0") {
       return false;
     }
 
-    dispatch(itemActions.changeQuantity(number));
+    dispatch(itemActions.changeQuantity(v.floatValue));
   };
 
   // Add New Item
@@ -124,7 +120,7 @@ const ItemList = () => {
             <NumericFormat
               id="totalPrice"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
-              onChange={changeItemTotalPrice}
+              onValueChange={changeItemTotalPrice}
               onKeyDown={(e) =>
                 EnterKey(e, itemName, itemTotalPrice, itemQuantity)
               }
@@ -141,7 +137,7 @@ const ItemList = () => {
             <NumericFormat
               id="quantity"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
-              onChange={changeItemQuantity}
+              onValueChange={changeItemQuantity}
               onKeyDown={(e) =>
                 EnterKey(e, itemName, itemTotalPrice, itemQuantity)
               }

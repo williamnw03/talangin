@@ -9,7 +9,7 @@ const extraChargeSlice = createSlice({
       { value: "evenly", label: "$" },
     ],
     name: "",
-    totalPrice: "",
+    totalPrice: 0,
     type: "",
     extraCharges: [],
   },
