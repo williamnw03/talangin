@@ -8,8 +8,8 @@ const StartPage = () => {
         <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="b" gradientTransform="rotate(90 .5 .5)">
-              <stop offset="0%" stopColor="#1B262C" />
-              <stop offset="100%" stopColor="#0F4C75" />
+              <stop offset="0%" stopColor="#0096c7" />
+              <stop offset="100%" stopColor="#48cae4" />
             </linearGradient>
           </defs>
           <g clipPath="url(#a)">
