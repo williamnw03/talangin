@@ -2,15 +2,9 @@ import React from "react";
 
 import LinkLists from "../components/LinkLists";
 
-import Select from "react-select";
 import NextBackButtons from "../components/NextBackButtons";
 
 const LinkBoth = () => {
-  const options = [
-    { value: "percent", label: "%" },
-    { value: "evenly", label: "$" },
-  ];
-
   return (
     <>
       <div className="flex flex-col xs:w-4/5 md:w-3/4 lg:w-1/2">

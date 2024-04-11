@@ -7,8 +7,8 @@ const itemSlice = createSlice({
       id: "",
       name: "",
       totalPrice: "",
-      quantity: "",
-      currentQuantity: "",
+      quantity: 0,
+      currentQuantity: 0,
     },
     name: "",
     totalPrice: 0,
@@ -36,10 +36,22 @@ const itemSlice = createSlice({
       state.items = state.items.filter((item) => item.id !== action.payload);
     },
 
-    changeCurrentQuantity: (state, action) => {
+    currentQuantityInc: (state, action) => {
       state.items = state.items.map((item) => {
-        if (item.id === action.payload.idItem) {
-          return { ...item, currentQuantity: action.payload.currentQuantity };
+        if (item.id === action.payload) {
+          if (item.currentQuantity == item.quantity) return item;
+          return { ...item, currentQuantity: item.currentQuantity + 1 };
+        } else {
+          return item;
+        }
+      });
+    },
+
+    currentQuantityDec: (state, action) => {
+      state.items = state.items.map((item) => {
+        if (item.id === action.payload) {
+          if (item.currentQuantity <= 0) return item;
+          return { ...item, currentQuantity: item.currentQuantity - 1 };
         } else {
           return item;
         }

@@ -74,6 +74,7 @@ const ItemList = () => {
       item.name = name;
       item.totalPrice = totalPrice;
       item.quantity = quantity;
+      item.currentQuantity = quantity;
       dispatch(itemActions.addItem(item));
     }
   };
