@@ -32,12 +32,17 @@ const memberSlice = createSlice({
       state.members = state.members.map((member) => {
         if (member.id == action.payload.idMember) {
           const newMember = { ...member };
+
+          // Check if there is item in array
+          // There is
           if (!member.items.find((item) => item.id == action.payload.item.id)) {
             newMember.items.push(action.payload.item);
             return newMember;
+            // There is not
           } else {
             const newItems = newMember.items.map((item) => {
               if (item.id == action.payload.item.id) {
+                // Stop increasing the item label
                 if (action.payload.itemOrigin.currentQuantity == 0) return item;
                 return {
                   ...item,
@@ -61,12 +66,17 @@ const memberSlice = createSlice({
       state.members = state.members.map((member) => {
         if (member.id == action.payload.idMember) {
           const newMember = { ...member };
+
+          // Check if there is item in array
+          // There is
           if (!member.items.find((item) => item.id == action.payload.item.id)) {
             newMember.items.push(action.payload.item);
             return newMember;
+            // There is not
           } else {
             let newItems = newMember.items.map((item) => {
               if (item.id == action.payload.item.id) {
+                // Remove the label quantity
                 if (item.currentQuantity == 1) return false;
                 return {
                   ...item,

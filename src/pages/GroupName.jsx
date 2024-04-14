@@ -1,11 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 // Redux
 import { groupActions } from "../store/group-slice";
 
-const GroupName = () => {
+const GroupName = (props) => {
+  const navigation = useNavigate();
+
+  // Check page status
+  useEffect(() => {
+    if (!props.pageStatus.groupName) {
+      navigation("/");
+    }
+  }, [props.pageStatus]);
+
   const dispatch = useDispatch();
 
   // Group Name
@@ -14,6 +23,21 @@ const GroupName = () => {
   // change input group name
   const changeGroupName = (e) => {
     dispatch(groupActions.changeName(e.target.value));
+
+    // change status page
+    if (!e.target.value.length) {
+      props.changePageStatus("memberName", false);
+    }
+  };
+
+  // next link
+  const nextLink = (e) => {
+    if (!groupName.length) {
+      e.preventDefault();
+      props.changePageStatus("memberName", false);
+    } else {
+      props.changePageStatus("memberName", true);
+    }
   };
 
   return (
@@ -30,6 +54,7 @@ const GroupName = () => {
       <Link
         to="/membername"
         className="bg-firstColor text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-thirdColor transition-colors"
+        onClick={nextLink}
       >
         Next
       </Link>

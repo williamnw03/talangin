@@ -48,6 +48,13 @@ const LinkList = (props) => {
     );
 
     dispatch(itemActions.currentQuantityInc(newItem.id));
+
+    // change status page
+    const check = props.items.filter((item) => item.currentQuantity != 0);
+
+    if (check.length) {
+      props.changePageStatus("linkBoth", false);
+    }
   };
 
   return (

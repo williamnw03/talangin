@@ -39,6 +39,7 @@ const itemSlice = createSlice({
     currentQuantityInc: (state, action) => {
       state.items = state.items.map((item) => {
         if (item.id === action.payload) {
+          // Stop increasing when it is reach the max
           if (item.currentQuantity == item.quantity) return item;
           return { ...item, currentQuantity: item.currentQuantity + 1 };
         } else {
@@ -50,6 +51,7 @@ const itemSlice = createSlice({
     currentQuantityDec: (state, action) => {
       state.items = state.items.map((item) => {
         if (item.id === action.payload) {
+          // Stop decreasing when it is reach 0
           if (item.currentQuantity <= 0) return item;
           return { ...item, currentQuantity: item.currentQuantity - 1 };
         } else {

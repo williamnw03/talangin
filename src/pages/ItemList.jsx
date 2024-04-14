@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -13,8 +13,18 @@ import generateUniqueId from "generate-unique-id";
 // Components
 import Lists from "../components/Lists";
 import NextBackButtons from "../components/NextBackButtons";
+import { useNavigate } from "react-router-dom";
 
-const ItemList = () => {
+const ItemList = (props) => {
+  const navigation = useNavigate();
+
+  // Check page status
+  useEffect(() => {
+    if (!props.pageStatus.itemList) {
+      navigation("/memberName");
+    }
+  }, [props.pageStatus]);
+
   // generate id
   const id = generateUniqueId();
 
@@ -89,6 +99,21 @@ const ItemList = () => {
   // Remove Item
   const removeItem = (id) => {
     dispatch(itemActions.removeItem(id));
+
+    // change status page
+    if (items.length == 1) {
+      props.changePageStatus("extraCharge", false);
+    }
+  };
+
+  // next link
+  const nextLink = (e) => {
+    if (!items.length) {
+      e.preventDefault();
+      props.changePageStatus("extraCharge", false);
+    } else {
+      props.changePageStatus("extraCharge", true);
+    }
   };
 
   return (
@@ -156,7 +181,11 @@ const ItemList = () => {
           </button>
         </div>
         <Lists type="item-list" data={items} remove={removeItem} />
-        <NextBackButtons next={"/extracharge"} back={"/membername"} />
+        <NextBackButtons
+          next={"/extracharge"}
+          back={"/membername"}
+          nextLink={nextLink}
+        />
       </div>
     </>
   );

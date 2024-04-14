@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import NextBackButtons from "../components/NextBackButtons";
 import ResultLists from "../components/ResultLists";
 
-const Result = () => {
+const Result = (props) => {
+  const navigation = useNavigate();
+
+  // Check page status
+  useEffect(() => {
+    if (!props.pageStatus.result) {
+      navigation("/linkBoth");
+    }
+  }, [props.pageStatus]);
+
+  // next link
+  const nextLink = (e) => {
+    props.changePageStatus("groupName", false);
+    props.changePageStatus("memberName", false);
+    props.changePageStatus("itemList", false);
+    props.changePageStatus("extraCharge", false);
+    props.changePageStatus("linkBoth", false);
+    props.changePageStatus("result", false);
+  };
+
   return (
     <>
       <div className="flex flex-col xs:w-4/5 md:w-3/4 lg:w-1/2">
@@ -15,7 +35,7 @@ const Result = () => {
 
         <ResultLists />
 
-        <NextBackButtons next={"/"} back={"/linkboth"} />
+        <NextBackButtons next={"/"} back={"/linkboth"} nextLink={nextLink} />
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const StartPage = () => {
+const StartPage = (props) => {
   return (
     <>
       <div className="w-full xs:w-2/3 md:w-2/5 lg:w-1/3 xl:w-1/4">
@@ -47,6 +47,7 @@ const StartPage = () => {
       <Link
         to="/groupname"
         className="bg-firstColor text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-thirdColor transition-colors"
+        onClick={() => props.changePageStatus("groupName", true)}
       >
         Start Now
       </Link>

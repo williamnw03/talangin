@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Lists from "../components/Lists";
 
 // Redux
@@ -14,7 +15,16 @@ import { NumericFormat } from "react-number-format";
 import Select from "react-select";
 import NextBackButtons from "../components/NextBackButtons";
 
-const ExtraCharge = () => {
+const ExtraCharge = (props) => {
+  const navigation = useNavigate();
+
+  // Check page status
+  useEffect(() => {
+    if (!props.pageStatus.extraCharge) {
+      navigation("/itemList");
+    }
+  }, [props.pageStatus]);
+
   // generate id
   const id = generateUniqueId();
 
@@ -83,6 +93,21 @@ const ExtraCharge = () => {
   // Remove Extra Charge
   const removeExtraCharge = (id) => {
     dispatch(extraChargeActions.removeExtraCharge(id));
+
+    // change status page
+    if (extraCharges.length == 1) {
+      props.changePageStatus("linkBoth", false);
+    }
+  };
+
+  // next link
+  const nextLink = (e) => {
+    if (!extraCharges.length) {
+      e.preventDefault();
+      props.changePageStatus("linkBoth", false);
+    } else {
+      props.changePageStatus("linkBoth", true);
+    }
   };
   return (
     <>
@@ -177,7 +202,11 @@ const ExtraCharge = () => {
           data={extraCharges}
           remove={removeExtraCharge}
         />
-        <NextBackButtons next={"/linkboth"} back={"/itemlist"} />
+        <NextBackButtons
+          next={"/linkboth"}
+          back={"/itemlist"}
+          nextLink={nextLink}
+        />
       </div>
     </>
   );
