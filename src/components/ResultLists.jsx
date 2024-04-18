@@ -2,14 +2,24 @@ import React from "react";
 
 import ResultList from "./ResultList";
 
-const ResultLists = () => {
+const ResultLists = (props) => {
   return (
     <div className="flex flex-col gap-6 w-full bg-firstColor p-4 rounded-md">
-      <ResultList />
-      <ResultList />
-      <ResultList />
+      {props.members.map((member) => {
+        return (
+          <ResultList
+            key={member.id}
+            name={member.name}
+            totalPayment={member.totalPayment}
+          />
+        );
+      })}
+
       <div className="bg-offWhite p-4 rounded-md text-center text-firstColor font-bold">
-        Rp 400.000
+        Rp{" "}
+        {props.members.reduce((total, current) => {
+          return total + current.totalPayment;
+        }, 0)}
       </div>
     </div>
   );

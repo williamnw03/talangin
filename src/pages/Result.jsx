@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import NextBackButtons from "../components/NextBackButtons";
 import ResultLists from "../components/ResultLists";
@@ -23,6 +24,35 @@ const Result = (props) => {
     props.changePageStatus("result", false);
   };
 
+  // Members
+  const members = useSelector((state) => state.member.members);
+  console.log(members);
+
+  // Members and totalPayment
+  const [newMembers, setNewMebers] = useState([]);
+
+  // Calculate total payment func
+  const calculateTotalPayment = () => {
+    return members.map((member) => {
+      let totalPayment = 0;
+
+      member.items.forEach((item) => {
+        const priceEach = item.totalPrice / item.quantity;
+        const price = priceEach * item.currentQuantity;
+
+        totalPayment = Math.ceil(totalPayment + price);
+      });
+
+      return { ...member, totalPayment };
+    });
+  };
+
+  // Show total payment
+  useEffect(() => {
+    setNewMebers(calculateTotalPayment());
+  }, [members]);
+
+  console.log(newMembers);
   return (
     <>
       <div className="flex flex-col xs:w-4/5 md:w-3/4 lg:w-1/2">
@@ -33,7 +63,7 @@ const Result = (props) => {
           Group Name : <span className="font-semibold">Power Rangers</span>
         </p>
 
-        <ResultLists />
+        <ResultLists members={newMembers} />
 
         <NextBackButtons next={"/"} back={"/linkboth"} nextLink={nextLink} />
       </div>
