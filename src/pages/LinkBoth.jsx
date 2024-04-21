@@ -31,6 +31,8 @@ const LinkBoth = (props) => {
     }
   };
 
+  console.log(items);
+
   return (
     <>
       <div className="flex flex-col xs:w-4/5 md:w-3/4 lg:w-1/2">

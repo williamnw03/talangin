@@ -51,7 +51,7 @@ const Result = (props) => {
           const cost = e.totalPrice / members.length;
           totalPayment = totalPayment + cost;
         } else {
-          const cost = totalPayment + totalPayment * (e.totalPrice / 100);
+          const cost = totalPayment * (e.totalPrice / 100);
           totalPayment = totalPayment + cost;
         }
       });

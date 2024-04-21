@@ -53,7 +53,7 @@ const LinkList = (props) => {
     const check = props.items.filter((item) => item.currentQuantity != 0);
 
     if (check.length) {
-      props.changePageStatus("linkBoth", false);
+      props.changePageStatus("result", false);
     }
   };
 
