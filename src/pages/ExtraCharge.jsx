@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Lists from "../components/Lists";
 
@@ -109,13 +109,14 @@ const ExtraCharge = (props) => {
       props.changePageStatus("linkBoth", true);
     }
   };
+
   return (
     <>
       <div className="flex flex-col xs:w-4/5 md:w-3/4 lg:w-1/2">
         <h1 className="text-3xl font-light text-center text-firstColor md:text-4xl">
           Write on your <span className=" font-semibold">Extra Charges</span>
         </h1>
-        <div className="flex flex-col gap-2 mt-4 w-full text-firstColor md:flex-row md:items-end">
+        <div className="flex flex-col gap-2 mt-4 w-full text-firstColor md:flex-row md:items-start">
           <div className="flex-1 basis-2/5">
             <label htmlFor="name" className="font-semibold">
               Name
@@ -159,43 +160,50 @@ const ExtraCharge = (props) => {
             />
           </div>
 
-          <div className="basis-1/5">
-            <label htmlFor="type" className="font-semibold">
-              Type
-            </label>
+          <div className="flex flex-col gap-2 basis-1/5">
+            <div>
+              <label htmlFor="type" className="font-semibold">
+                Type
+              </label>
 
-            <Select
-              options={options}
-              styles={{
-                control: (baseStyles, state) => ({
-                  ...baseStyles,
-                  backgroundColor: "transparent",
-                  borderColor: "#0096c7",
-                  padding: "o.5rem",
-                  width: "100%",
-                  height: "2.75rem",
-                  borderRadius: "0.5rem",
-                }),
-              }}
-              isSearchable={false}
-              placeholder={"Type"}
-              onChange={changeExtraChargeType}
-              value={extraChargeType}
-            />
+              <Select
+                options={options}
+                styles={{
+                  control: (baseStyles, state) => ({
+                    ...baseStyles,
+                    backgroundColor: "transparent",
+                    borderColor: "#0096c7",
+                    padding: "o.5rem",
+                    width: "100%",
+                    height: "2.75rem",
+                    borderRadius: "0.5rem",
+                  }),
+                }}
+                isSearchable={false}
+                placeholder={"Type"}
+                onChange={changeExtraChargeType}
+                value={extraChargeType}
+              />
+            </div>
           </div>
 
-          <button
-            className="bg-firstColor text-offWhite text-5xl h-11 aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity"
-            onClick={() =>
-              addExtraCharge(
-                extraChargeName,
-                extraChargeTotalPrice,
-                extraChargeType
-              )
-            }
-          >
-            +
-          </button>
+          <div className="">
+            <label className="font-semibold hidden md:block md:invisible">
+              None
+            </label>
+            <button
+              className="bg-firstColor text-offWhite text-5xl w-full h-11 aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity"
+              onClick={() =>
+                addExtraCharge(
+                  extraChargeName,
+                  extraChargeTotalPrice,
+                  extraChargeType
+                )
+              }
+            >
+              +
+            </button>
+          </div>
         </div>
         <Lists
           type="extraCharge-list"

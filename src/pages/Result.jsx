@@ -28,6 +28,9 @@ const Result = (props) => {
   const members = useSelector((state) => state.member.members);
   console.log(members);
 
+  // Extra Charges
+  const extraCharges = useSelector((state) => state.extraCharge.extraCharges);
+
   // Members and totalPayment
   const [newMembers, setNewMebers] = useState([]);
 
@@ -41,6 +44,16 @@ const Result = (props) => {
         const price = priceEach * item.currentQuantity;
 
         totalPayment = Math.ceil(totalPayment + price);
+      });
+
+      extraCharges.forEach((e) => {
+        if (e.type.value == "evenly") {
+          const cost = e.totalPrice / members.length;
+          totalPayment = totalPayment + cost;
+        } else {
+          const cost = totalPayment + totalPayment * (e.totalPrice / 100);
+          totalPayment = totalPayment + cost;
+        }
       });
 
       return { ...member, totalPayment };

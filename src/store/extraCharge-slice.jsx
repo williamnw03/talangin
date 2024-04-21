@@ -26,6 +26,10 @@ const extraChargeSlice = createSlice({
       state.type = action.payload;
     },
 
+    changePercent: (state, action) => {
+      state.percent = action.payload;
+    },
+
     addExtraCharge: (state, action) => {
       state.extraCharges.push(action.payload);
     },

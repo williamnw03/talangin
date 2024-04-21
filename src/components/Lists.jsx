@@ -56,11 +56,19 @@ const Lists = (props) => {
               />
             );
 
-            content = (
-              <span>
-                {e.name} | Rp{totalPrice} | {e.type.value}
-              </span>
-            );
+            if (e.type.value == "evenly") {
+              content = (
+                <span>
+                  {e.name} | Rp{totalPrice}
+                </span>
+              );
+            } else {
+              content = (
+                <span>
+                  {e.name} | {totalPrice}%
+                </span>
+              );
+            }
           }
           return (
             <List
