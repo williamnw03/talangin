@@ -14,6 +14,7 @@ import generateUniqueId from "generate-unique-id";
 import Lists from "../components/Lists";
 import NextBackButtons from "../components/NextBackButtons";
 import { useNavigate } from "react-router-dom";
+import { memberActions } from "../store/member-slice";
 
 const ItemList = (props) => {
   const navigation = useNavigate();
@@ -41,6 +42,9 @@ const ItemList = (props) => {
   const itemTemp = useSelector((state) => state.item.temp);
   // Items
   const items = useSelector((state) => state.item.items);
+
+  // Members
+  const members = useSelector((state) => state.member.members);
 
   // change item name
   const changeItemName = (e) => {
@@ -104,6 +108,9 @@ const ItemList = (props) => {
     if (items.length == 1) {
       props.changePageStatus("extraCharge", false);
     }
+
+    // Remove Items in member
+    dispatch(memberActions.removeItem(id));
   };
 
   // next link

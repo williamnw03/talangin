@@ -26,7 +26,6 @@ const Result = (props) => {
 
   // Members
   const members = useSelector((state) => state.member.members);
-  console.log(members);
 
   // Extra Charges
   const extraCharges = useSelector((state) => state.extraCharge.extraCharges);
@@ -38,25 +37,32 @@ const Result = (props) => {
   const calculateTotalPayment = () => {
     return members.map((member) => {
       let totalPayment = 0;
+      const itemDetailPayment = [];
+      const extraDetailPayment = [];
 
       member.items.forEach((item) => {
         const priceEach = item.totalPrice / item.quantity;
-        const price = priceEach * item.currentQuantity;
+        const price = Math.ceil(priceEach * item.currentQuantity);
 
-        totalPayment = Math.ceil(totalPayment + price);
+        totalPayment = totalPayment + price;
+        itemDetailPayment.push({ id: item.id, name: item.name, price: price });
       });
 
       extraCharges.forEach((e) => {
         if (e.type.value == "evenly") {
-          const cost = e.totalPrice / members.length;
-          totalPayment = totalPayment + cost;
+          const price = Math.ceil(e.totalPrice / members.length);
+          totalPayment = totalPayment + price;
+
+          extraDetailPayment.push({ id: e.id, name: e.name, price: price });
         } else {
-          const cost = totalPayment * (e.totalPrice / 100);
-          totalPayment = totalPayment + cost;
+          const price = Math.ceil(totalPayment * (e.totalPrice / 100));
+          totalPayment = totalPayment + price;
+
+          extraDetailPayment.push({ id: e.id, name: e.name, price: price });
         }
       });
 
-      return { ...member, totalPayment };
+      return { ...member, totalPayment, itemDetailPayment, extraDetailPayment };
     });
   };
 

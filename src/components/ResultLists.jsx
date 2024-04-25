@@ -11,6 +11,8 @@ const ResultLists = (props) => {
             key={member.id}
             name={member.name}
             totalPayment={member.totalPayment}
+            itemDetailPayment={member.itemDetailPayment}
+            extraDetailPayment={member.extraDetailPayment}
           />
         );
       })}

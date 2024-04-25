@@ -106,6 +106,16 @@ const memberSlice = createSlice({
         };
       });
     },
+
+    removeItem: (state, action) => {
+      state.members = state.members.map((member) => {
+        const newItems = member.items.filter(
+          (item) => item.id != action.payload
+        );
+
+        return { ...member, items: newItems };
+      });
+    },
   },
 });
 
