@@ -13,6 +13,7 @@ const ResultLists = (props) => {
             totalPayment={member.totalPayment}
             itemDetailPayment={member.itemDetailPayment}
             extraDetailPayment={member.extraDetailPayment}
+            changeShowDetail={props.changeShowDetail}
           />
         );
       })}

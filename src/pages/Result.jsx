@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import DetailsTable from "../components/DetailsTable";
 import NextBackButtons from "../components/NextBackButtons";
 import ResultLists from "../components/ResultLists";
 
@@ -33,6 +34,9 @@ const Result = (props) => {
   // Members and totalPayment
   const [newMembers, setNewMebers] = useState([]);
 
+  // Detail Table
+  const [showDetail, setShowDetail] = useState(false);
+
   // Calculate total payment func
   const calculateTotalPayment = () => {
     return members.map((member) => {
@@ -45,7 +49,12 @@ const Result = (props) => {
         const price = Math.ceil(priceEach * item.currentQuantity);
 
         totalPayment = totalPayment + price;
-        itemDetailPayment.push({ id: item.id, name: item.name, price: price });
+        itemDetailPayment.push({
+          id: item.id,
+          name: item.name,
+          quantity: item.currentQuantity,
+          price: price,
+        });
       });
 
       extraCharges.forEach((e) => {
@@ -53,7 +62,12 @@ const Result = (props) => {
           const price = Math.ceil(e.totalPrice / members.length);
           totalPayment = totalPayment + price;
 
-          extraDetailPayment.push({ id: e.id, name: e.name, price: price });
+          extraDetailPayment.push({
+            id: e.id,
+            name: e.name,
+            quantity: e.currentQuantity,
+            price: price,
+          });
         } else {
           const price = Math.ceil(totalPayment * (e.totalPrice / 100));
           totalPayment = totalPayment + price;
@@ -66,15 +80,24 @@ const Result = (props) => {
     });
   };
 
+  // Show Detail
+  const changeShowDetail = (status) => {
+    setShowDetail(status);
+  };
+
   // Show total payment
   useEffect(() => {
     setNewMebers(calculateTotalPayment());
   }, [members]);
 
-  console.log(newMembers);
   return (
     <>
-      <div className="flex flex-col xs:w-4/5 md:w-3/4 lg:w-1/2">
+      {showDetail && <DetailsTable changeShowDetail={changeShowDetail} />}
+      <div
+        className={`flex flex-col ${
+          showDetail ? "blur-sm" : "blur-none"
+        } xs:w-4/5 md:w-3/4 lg:w-1/2`}
+      >
         <h1 className="text-3xl font-light text-center text-firstColor md:text-4xl">
           <span className=" font-semibold">Result</span>
         </h1>
@@ -82,7 +105,7 @@ const Result = (props) => {
           Group Name : <span className="font-semibold">Power Rangers</span>
         </p>
 
-        <ResultLists members={newMembers} />
+        <ResultLists members={newMembers} changeShowDetail={changeShowDetail} />
 
         <NextBackButtons next={"/"} back={"/linkboth"} nextLink={nextLink} />
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DetailsTable from "../components/DetailsTable";
 
 const StartPage = (props) => {
   return (

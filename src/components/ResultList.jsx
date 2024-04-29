@@ -18,7 +18,7 @@ const ResultList = (props) => {
       </div>
       <div
         className="flex justify-center items-center w-full min-h-11 bg-offWhite rounded-md cursor-pointer hover:bg-thirdColor hover:text-offWhite transition-colors xs:w-2/5"
-        onClick={showDetailPayment}
+        onClick={() => props.changeShowDetail(true)}
       >
         <p>Rp {props.totalPayment}</p>
       </div>
