@@ -36,7 +36,10 @@ const memberSlice = createSlice({
           // Check if there is item in array
           // There is
           if (!member.items.find((item) => item.id == action.payload.item.id)) {
-            newMember.items.push(action.payload.item);
+            // Make sure there is still item left
+            if (action.payload.itemOrigin.currentQuantity > 0) {
+              newMember.items.push(action.payload.item);
+            }
             return newMember;
             // There is not
           } else {

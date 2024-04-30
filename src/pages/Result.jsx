@@ -36,6 +36,25 @@ const Result = (props) => {
 
   // Detail Table
   const [showDetail, setShowDetail] = useState(false);
+  const [detailTableItem, setDetailTableItem] = useState([
+    {
+      id: "",
+      type: "",
+      name: "",
+      quantity: 0,
+      price: 0,
+      priceEach: 0,
+    },
+  ]);
+  const [detailTableExtra, setDetailTableExtra] = useState([
+    {
+      id: "",
+      type: "",
+      name: "",
+      quantity: 0,
+      price: 0,
+    },
+  ]);
 
   // Calculate total payment func
   const calculateTotalPayment = () => {
@@ -45,7 +64,7 @@ const Result = (props) => {
       const extraDetailPayment = [];
 
       member.items.forEach((item) => {
-        const priceEach = item.totalPrice / item.quantity;
+        const priceEach = Math.ceil(item.totalPrice / item.quantity);
         const price = Math.ceil(priceEach * item.currentQuantity);
 
         totalPayment = totalPayment + price;
@@ -54,25 +73,32 @@ const Result = (props) => {
           name: item.name,
           quantity: item.currentQuantity,
           price: price,
+          priceEach: priceEach,
         });
       });
 
       extraCharges.forEach((e) => {
         if (e.type.value == "evenly") {
           const price = Math.ceil(e.totalPrice / members.length);
-          totalPayment = totalPayment + price;
+          totalPayment = Math.ceil(totalPayment + price);
 
           extraDetailPayment.push({
             id: e.id,
+            type: "extra-evenly",
             name: e.name,
-            quantity: e.currentQuantity,
             price: price,
           });
         } else {
           const price = Math.ceil(totalPayment * (e.totalPrice / 100));
-          totalPayment = totalPayment + price;
+          totalPayment = Math.ceil(totalPayment + price);
 
-          extraDetailPayment.push({ id: e.id, name: e.name, price: price });
+          extraDetailPayment.push({
+            id: e.id,
+            type: "extra-percent",
+            name: e.name,
+            price: price,
+            percentage: e.totalPrice,
+          });
         }
       });
 
@@ -81,8 +107,10 @@ const Result = (props) => {
   };
 
   // Show Detail
-  const changeShowDetail = (status) => {
+  const changeShowDetail = (status, items, extras) => {
     setShowDetail(status);
+    setDetailTableItem(items);
+    setDetailTableExtra(extras);
   };
 
   // Show total payment
@@ -92,7 +120,13 @@ const Result = (props) => {
 
   return (
     <>
-      {showDetail && <DetailsTable changeShowDetail={changeShowDetail} />}
+      {showDetail && (
+        <DetailsTable
+          changeShowDetail={changeShowDetail}
+          items={detailTableItem}
+          extras={detailTableExtra}
+        />
+      )}
       <div
         className={`flex flex-col ${
           showDetail ? "blur-sm" : "blur-none"
