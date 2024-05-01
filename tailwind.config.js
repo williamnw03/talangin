@@ -9,6 +9,7 @@ export default {
         thirdColor: "#48cae4",
         fourthColor: "#90e0ef",
         offWhite: "#FAF9F6",
+        blueWhite: "#F1FAFF",
       },
 
       fontFamily: {

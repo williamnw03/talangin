@@ -49,7 +49,6 @@ const itemSlice = createSlice({
     },
 
     currentQuantityDec: (state, action) => {
-      console.log("HAHA");
       state.items = state.items.map((item) => {
         if (item.id === action.payload) {
           // Stop decreasing when it is reach 0

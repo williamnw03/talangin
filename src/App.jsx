@@ -29,7 +29,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex mt-8">
+    <div className="min-h-screen flex pt-8">
       <div className="flex flex-col w-full p-6 xs:items-center">
         <BrowserRouter>
           <Routes>

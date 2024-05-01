@@ -109,8 +109,11 @@ const Result = (props) => {
   // Show Detail
   const changeShowDetail = (status, items, extras) => {
     setShowDetail(status);
-    setDetailTableItem(items);
-    setDetailTableExtra(extras);
+
+    if (status) {
+      setDetailTableItem(items);
+      setDetailTableExtra(extras);
+    }
   };
 
   // Show total payment
@@ -120,13 +123,13 @@ const Result = (props) => {
 
   return (
     <>
-      {showDetail && (
-        <DetailsTable
-          changeShowDetail={changeShowDetail}
-          items={detailTableItem}
-          extras={detailTableExtra}
-        />
-      )}
+      <DetailsTable
+        showDetail={showDetail}
+        changeShowDetail={changeShowDetail}
+        items={detailTableItem}
+        extras={detailTableExtra}
+      />
+
       <div
         className={`flex flex-col ${
           showDetail ? "blur-sm" : "blur-none"
