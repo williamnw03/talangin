@@ -2,6 +2,9 @@ import React from "react";
 
 import ResultList from "./ResultList";
 
+// Number Format
+import { NumericFormat } from "react-number-format";
+
 const ResultLists = (props) => {
   return (
     <div className="flex flex-col gap-6 w-full bg-firstColor p-4 rounded-md">
@@ -19,10 +22,16 @@ const ResultLists = (props) => {
       })}
 
       <div className="bg-offWhite p-4 rounded-md text-center text-firstColor font-bold">
-        Rp{" "}
-        {props.members.reduce((total, current) => {
-          return total + current.totalPayment;
-        }, 0)}
+        Rp
+        <NumericFormat
+          value={props.members.reduce((total, current) => {
+            return total + current.totalPayment;
+          }, 0)}
+          thousandSeparator=","
+          allowNegative={false}
+          displayType="text"
+          renderText={(value) => <span>{value}</span>}
+        />
       </div>
     </div>
   );

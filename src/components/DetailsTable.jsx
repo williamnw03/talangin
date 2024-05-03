@@ -1,5 +1,8 @@
 import React from "react";
 
+// Number Format
+import { NumericFormat } from "react-number-format";
+
 const DetailsTable = (props) => {
   return (
     <div
@@ -35,13 +38,33 @@ const DetailsTable = (props) => {
                   <tr key={item.id}>
                     <td className="p-4 border border-slate-400">{item.name}</td>
                     <td className="p-4 border border-slate-400">
-                      {item.quantity}
+                      <NumericFormat
+                        value={item.quantity}
+                        thousandSeparator=","
+                        allowNegative={false}
+                        displayType="text"
+                        renderText={(value) => <span>{value}</span>}
+                      />
                     </td>
                     <td className="p-4 border border-slate-400">
-                      Rp{item.priceEach}
+                      Rp
+                      <NumericFormat
+                        value={item.priceEach}
+                        thousandSeparator=","
+                        allowNegative={false}
+                        displayType="text"
+                        renderText={(value) => <span>{value}</span>}
+                      />
                     </td>
                     <td className="p-4 border border-slate-400">
-                      Rp{item.price}
+                      Rp
+                      <NumericFormat
+                        value={item.price}
+                        thousandSeparator=","
+                        allowNegative={false}
+                        displayType="text"
+                        renderText={(value) => <span>{value}</span>}
+                      />
                     </td>
                   </tr>
                 );
@@ -54,13 +77,28 @@ const DetailsTable = (props) => {
                       {extra.name}
                     </td>
                     <td className="p-4 border border-slate-400">
-                      {extra.type == "extra-percent"
-                        ? extra.percentage + "%"
-                        : "-"}
+                      {extra.type == "extra-percent" ? (
+                        <NumericFormat
+                          value={extra.pricePercentage}
+                          thousandSeparator=","
+                          allowNegative={false}
+                          displayType="text"
+                          renderText={(value) => <span>{value}%</span>}
+                        />
+                      ) : (
+                        "-"
+                      )}
                     </td>
                     <td className="p-4 border border-slate-400">-</td>
                     <td className="p-4 border border-slate-400">
-                      Rp{extra.price}
+                      Rp
+                      <NumericFormat
+                        value={extra.price}
+                        thousandSeparator=","
+                        allowNegative={false}
+                        displayType="text"
+                        renderText={(value) => <span>{value}</span>}
+                      />
                     </td>
                   </tr>
                 );
@@ -71,12 +109,20 @@ const DetailsTable = (props) => {
                 <td className="p-4 border border-slate-400"></td>
                 <td className="p-4 border border-slate-400">
                   Rp
-                  {props.items.reduce((total, current) => {
-                    return total + current.price;
-                  }, 0) +
-                    props.extras.reduce((total, current) => {
-                      return total + current.price;
-                    }, 0)}
+                  <NumericFormat
+                    value={
+                      props.items.reduce((total, current) => {
+                        return total + current.price;
+                      }, 0) +
+                      props.extras.reduce((total, current) => {
+                        return total + current.price;
+                      }, 0)
+                    }
+                    thousandSeparator=","
+                    allowNegative={false}
+                    displayType="text"
+                    renderText={(value) => <span>{value}</span>}
+                  />
                 </td>
               </tr>
             </tbody>

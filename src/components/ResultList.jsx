@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+
+// Number Format
+import { NumericFormat } from "react-number-format";
 
 const ResultList = (props) => {
   return (
@@ -20,7 +23,16 @@ const ResultList = (props) => {
           )
         }
       >
-        <p>Rp {props.totalPayment}</p>
+        <p className="text-firstColor">
+          Rp
+          <NumericFormat
+            value={props.totalPayment}
+            thousandSeparator=","
+            allowNegative={false}
+            displayType="text"
+            renderText={(value) => <span>{value}</span>}
+          />
+        </p>
       </div>
     </div>
   );
