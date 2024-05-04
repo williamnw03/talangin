@@ -14,6 +14,7 @@ import { NumericFormat } from "react-number-format";
 
 import Select from "react-select";
 import NextBackButtons from "../components/NextBackButtons";
+import { PlusLg } from "react-bootstrap-icons";
 
 const ExtraCharge = (props) => {
   const navigation = useNavigate();
@@ -192,7 +193,7 @@ const ExtraCharge = (props) => {
               None
             </label>
             <button
-              className="bg-firstColor text-offWhite text-5xl w-full h-11 aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity"
+              className="flex justify-center items-center bg-firstColor text-offWhite text-3xl w-full h-11 aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity"
               onClick={() =>
                 addExtraCharge(
                   extraChargeName,
@@ -201,7 +202,7 @@ const ExtraCharge = (props) => {
                 )
               }
             >
-              +
+              <PlusLg />
             </button>
           </div>
         </div>

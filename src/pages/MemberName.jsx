@@ -11,6 +11,7 @@ import generateUniqueId from "generate-unique-id";
 import Lists from "../components/Lists";
 import NextBackButtons from "../components/NextBackButtons";
 import { useNavigate } from "react-router-dom";
+import { PlusLg } from "react-bootstrap-icons";
 
 const MemberName = (props) => {
   const navigation = useNavigate();
@@ -91,10 +92,10 @@ const MemberName = (props) => {
             value={memberName}
           />
           <button
-            className="bg-firstColor text-offWhite text-5xl h-full aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity"
+            className="flex justify-center items-center bg-firstColor text-offWhite text-3xl h-full aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity"
             onClick={() => addMember(memberName)}
           >
-            +
+            <PlusLg />
           </button>
         </div>
         <Lists type="member-name" data={members} remove={removeMember} />

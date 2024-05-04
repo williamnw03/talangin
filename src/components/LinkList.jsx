@@ -6,6 +6,7 @@ import { memberActions } from "../store/member-slice";
 import { itemActions } from "../store/item-slice";
 
 import Select from "react-select";
+import { XLg } from "react-bootstrap-icons";
 
 const LinkList = (props) => {
   const dispatch = useDispatch();
@@ -70,16 +71,16 @@ const LinkList = (props) => {
             return (
               <div
                 key={item.id}
-                className="flex justify-between items-center w-max px-2 bg-offWhite text-firstColor rounded-md hover:bg-thirdColor hover:text-offWhite transition-colors"
+                className="flex justify-between items-center w-max px-2 bg-offWhite text-firstColor rounded-md hover:bg-thirdColor hover:text-offWhite transition-colors animate-scaleUp"
               >
                 <p className="text-xs text-light break-all">
                   {`${item.currentQuantity} | ${item.name}`}
                 </p>
                 <button
-                  className=" text-sm p-1 font-medium"
+                  className=" text-sm pl-1 py-1 font-medium"
                   onClick={() => deselectItems(item, props.memberData.id)}
                 >
-                  X
+                  <XLg />
                 </button>
               </div>
             );

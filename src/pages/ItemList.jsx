@@ -15,6 +15,7 @@ import Lists from "../components/Lists";
 import NextBackButtons from "../components/NextBackButtons";
 import { useNavigate } from "react-router-dom";
 import { memberActions } from "../store/member-slice";
+import { PlusLg } from "react-bootstrap-icons";
 
 const ItemList = (props) => {
   const navigation = useNavigate();
@@ -181,10 +182,10 @@ const ItemList = (props) => {
           </div>
 
           <button
-            className="bg-firstColor text-offWhite text-5xl h-11 aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity"
+            className="flex justify-center items-center bg-firstColor text-offWhite text-3xl h-11 aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity"
             onClick={() => addItem(itemName, itemTotalPrice, itemQuantity)}
           >
-            +
+            <PlusLg />
           </button>
         </div>
         <Lists type="item-list" data={items} remove={removeItem} />

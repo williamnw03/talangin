@@ -30,6 +30,14 @@ const GroupName = (props) => {
     }
   };
 
+  // Detect Enter Key
+  const EnterKey = (e) => {
+    if (e.key === "Enter" && e.target.value != "") {
+      props.changePageStatus("memberName", true);
+      navigation("/membername");
+    }
+  };
+
   // next link
   const nextLink = (e) => {
     if (!groupName.length) {
@@ -49,6 +57,7 @@ const GroupName = (props) => {
         type="text"
         className="bg-transparent text-firstColor border border-firstColor mt-4 p-2 w-full h-11 rounded-lg xs:w-4/5 md:w-2/4 lg:w-1/3 focus:outline-none"
         onChange={changeGroupName}
+        onKeyDown={EnterKey}
         value={groupName}
       />
       <Link

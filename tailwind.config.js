@@ -19,6 +19,17 @@ export default {
       screens: {
         xs: "540px",
       },
+
+      animation: {
+        scaleUp: "scaleUp 0.35s ease-out",
+      },
+
+      keyframes: {
+        scaleUp: {
+          from: { transform: "scale(0)", opacity: 0 },
+          to: { transform: "scale(1)", opacity: 1 },
+        },
+      },
     },
   },
   plugins: [],

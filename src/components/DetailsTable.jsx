@@ -1,4 +1,5 @@
 import React from "react";
+import { XLg } from "react-bootstrap-icons";
 
 // Number Format
 import { NumericFormat } from "react-number-format";
@@ -20,7 +21,7 @@ const DetailsTable = (props) => {
           className="flex justify-center items-center absolute top-0 left-full -translate-x-full cursor-pointer font-medium text-2xl w-12 h-12 text-offWhite rounded-tr-md"
           onClick={() => props.changeShowDetail(false)}
         >
-          X
+          <XLg />
         </div>
         <div className="w-full max-h-96 mt-6 overflow-scroll">
           <table className="table-auto border w-full text-firstColor border-slate-400 bg-offWhite">
