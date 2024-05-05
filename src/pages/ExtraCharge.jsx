@@ -55,6 +55,10 @@ const ExtraCharge = (props) => {
 
   // change extraCharge total price
   const changeExtraChargeTotalPrice = (v, s) => {
+    if (v.floatValue === undefined) {
+      return false;
+    }
+
     // Check minus value
     if (parseInt(v.floatValue) < 0) {
       return false;
@@ -124,6 +128,7 @@ const ExtraCharge = (props) => {
             </label>
             <input
               type="text"
+              autoComplete="off"
               id="name"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
               onChange={changeExtraChargeName}

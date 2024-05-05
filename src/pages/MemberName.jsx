@@ -86,6 +86,7 @@ const MemberName = (props) => {
         <div className="flex gap-2 mt-4 h-11 w-full">
           <input
             type="text"
+            autoComplete="off"
             className="flex-1 bg-transparent text-firstColor border border-firstColor p-2 w-full rounded-lg focus:outline-none"
             onChange={changeMember}
             onKeyDown={(e) => EnterKey(e, memberName)}

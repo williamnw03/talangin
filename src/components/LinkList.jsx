@@ -104,7 +104,8 @@ const LinkList = (props) => {
 
             option: (baseStyles, state) => ({
               ...baseStyles,
-              color: state.isSelected ? "#FAF9F6" : "#1B262C",
+              color: "#0096c7",
+              cursor: "pointer",
             }),
           }}
           isSearchable={true}

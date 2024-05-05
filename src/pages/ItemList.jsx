@@ -54,6 +54,10 @@ const ItemList = (props) => {
 
   // change item total price
   const changeItemTotalPrice = (v, s) => {
+    if (v.floatValue === undefined) {
+      return false;
+    }
+
     // Check minus value
     if (parseInt(v.floatValue) < 0) {
       return false;
@@ -68,6 +72,10 @@ const ItemList = (props) => {
 
   // change item quantity
   const changeItemQuantity = (v, s) => {
+    if (v.floatValue === undefined) {
+      return false;
+    }
+
     // Check minus value
     if (parseInt(v.floatValue) < 0) {
       return false;
@@ -137,6 +145,7 @@ const ItemList = (props) => {
             </label>
             <input
               type="text"
+              autoComplete="off"
               id="name"
               className="bg-transparent border border-firstColor p-2 w-full h-11 rounded-lg focus:outline-none"
               onChange={changeItemName}
