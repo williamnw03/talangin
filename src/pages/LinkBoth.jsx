@@ -9,6 +9,11 @@ import NextBackButtons from "../components/NextBackButtons";
 const LinkBoth = (props) => {
   const navigation = useNavigate();
 
+  // change progress
+  useEffect(() => {
+    props.changeProgressBar(5);
+  }, []);
+
   // Check page status
   useEffect(() => {
     if (!props.pageStatus.linkBoth) {

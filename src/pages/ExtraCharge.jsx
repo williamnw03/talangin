@@ -19,6 +19,11 @@ import { PlusLg } from "react-bootstrap-icons";
 const ExtraCharge = (props) => {
   const navigation = useNavigate();
 
+  // change progress
+  useEffect(() => {
+    props.changeProgressBar(4);
+  }, []);
+
   // Check page status
   useEffect(() => {
     if (!props.pageStatus.extraCharge) {
@@ -179,10 +184,22 @@ const ExtraCharge = (props) => {
                     ...baseStyles,
                     backgroundColor: "transparent",
                     borderColor: "#0096c7",
+                    outline: state.isFocused
+                      ? `2px solid #0096c7`
+                      : baseStyles.outline,
                     padding: "o.5rem",
                     width: "100%",
                     height: "2.75rem",
                     borderRadius: "0.5rem",
+                  }),
+
+                  option: (baseStyles, state) => ({
+                    ...baseStyles,
+                    color: "#0096c7",
+                    cursor: "pointer",
+                    backgroundColor: state.isSelected
+                      ? "transparent"
+                      : baseStyles.backgroundColor,
                   }),
                 }}
                 isSearchable={false}

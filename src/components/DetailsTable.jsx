@@ -12,7 +12,7 @@ const DetailsTable = (props) => {
       }`}
     >
       <div
-        className={`w-full bg-firstColor px-10 pb-10 rounded-md fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 shadow-lg xs:w-4/5 md:w-3/4 lg:w-1/2`}
+        className={`w-full bg-firstColor px-10 pb-10 rounded-2xl fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 shadow-2xl shadow-thirdColor border-offWhite border-4 xs:w-4/5 md:w-3/4 lg:w-1/2`}
       >
         <h1 className="text-3xl font-light text-center text-offWhite mt-6 md:text-4xl">
           <span className=" font-semibold">Detail</span>

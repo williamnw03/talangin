@@ -16,6 +16,11 @@ import { PlusLg } from "react-bootstrap-icons";
 const MemberName = (props) => {
   const navigation = useNavigate();
 
+  // change progress
+  useEffect(() => {
+    props.changeProgressBar(2);
+  }, []);
+
   // Check page status
   useEffect(() => {
     if (!props.pageStatus.memberName) {

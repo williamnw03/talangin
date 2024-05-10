@@ -95,6 +95,10 @@ const LinkList = (props) => {
               ...baseStyles,
               backgroundColor: "#FAF9F6",
               color: "#1B262C",
+              borderColor: "#0096c7",
+              outline: state.isFocused
+                ? `2px solid #0096c7`
+                : baseStyles.outline,
               padding: "o.5rem",
               width: "100%",
               minHeight: "2.75rem",

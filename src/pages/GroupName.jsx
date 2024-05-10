@@ -8,6 +8,11 @@ import { groupActions } from "../store/group-slice";
 const GroupName = (props) => {
   const navigation = useNavigate();
 
+  // change progress
+  useEffect(() => {
+    props.changeProgressBar(1);
+  }, []);
+
   // Check page status
   useEffect(() => {
     if (!props.pageStatus.groupName) {

@@ -28,73 +28,104 @@ function App() {
     });
   };
 
+  // progress bar
+  const [progressBar, setProgressBar] = useState(0);
+
+  // change progress bar
+  const changeProgressBar = (page) => {
+    const totalPage = 6;
+    const percent = Math.round((page / totalPage) * 100);
+    setProgressBar(percent);
+  };
+
   return (
-    <div className="min-h-screen flex pt-8">
-      <div className="flex flex-col w-full p-6 xs:items-center">
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path="/"
-              element={<StartPage changePageStatus={changePageStatus} />}
-            />
-            <Route
-              path="/groupname"
-              element={
-                <GroupName
-                  pageStatus={pageStatus}
-                  changePageStatus={changePageStatus}
-                />
-              }
-            />
-            <Route
-              path="/membername"
-              element={
-                <MemberName
-                  pageStatus={pageStatus}
-                  changePageStatus={changePageStatus}
-                />
-              }
-            />
-            <Route
-              path="/itemlist"
-              element={
-                <ItemList
-                  pageStatus={pageStatus}
-                  changePageStatus={changePageStatus}
-                />
-              }
-            />
-            <Route
-              path="/extracharge"
-              element={
-                <ExtraCharge
-                  pageStatus={pageStatus}
-                  changePageStatus={changePageStatus}
-                />
-              }
-            />
-            <Route
-              path="/linkboth"
-              element={
-                <LinkBoth
-                  pageStatus={pageStatus}
-                  changePageStatus={changePageStatus}
-                />
-              }
-            />
-            <Route
-              path="/result"
-              element={
-                <Result
-                  pageStatus={pageStatus}
-                  changePageStatus={changePageStatus}
-                />
-              }
-            />
-          </Routes>
-        </BrowserRouter>
+    <>
+      <div
+        className={`fixed top-0 bg-gradient-to-r from-firstColor to-secondColor h-3 transition-all duration-1000`}
+        style={{ width: `${progressBar}%` }}
+      ></div>
+      <div
+        className={`fixed top-full right-0 -translate-y-full bg-gradient-to-r from-firstColor to-secondColor h-3 transition-all duration-1000`}
+        style={{ width: `${progressBar}%` }}
+      ></div>
+      <div className="min-h-screen flex pt-8">
+        <div className="flex flex-col w-full p-6 xs:items-center">
+          <BrowserRouter>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <StartPage
+                    changePageStatus={changePageStatus}
+                    changeProgressBar={changeProgressBar}
+                  />
+                }
+              />
+              <Route
+                path="/groupname"
+                element={
+                  <GroupName
+                    pageStatus={pageStatus}
+                    changePageStatus={changePageStatus}
+                    changeProgressBar={changeProgressBar}
+                  />
+                }
+              />
+              <Route
+                path="/membername"
+                element={
+                  <MemberName
+                    pageStatus={pageStatus}
+                    changePageStatus={changePageStatus}
+                    changeProgressBar={changeProgressBar}
+                  />
+                }
+              />
+              <Route
+                path="/itemlist"
+                element={
+                  <ItemList
+                    pageStatus={pageStatus}
+                    changePageStatus={changePageStatus}
+                    changeProgressBar={changeProgressBar}
+                  />
+                }
+              />
+              <Route
+                path="/extracharge"
+                element={
+                  <ExtraCharge
+                    pageStatus={pageStatus}
+                    changePageStatus={changePageStatus}
+                    changeProgressBar={changeProgressBar}
+                  />
+                }
+              />
+              <Route
+                path="/linkboth"
+                element={
+                  <LinkBoth
+                    pageStatus={pageStatus}
+                    changePageStatus={changePageStatus}
+                    changeProgressBar={changeProgressBar}
+                  />
+                }
+              />
+              <Route
+                path="/result"
+                element={
+                  <Result
+                    pageStatus={pageStatus}
+                    changePageStatus={changePageStatus}
+                    changeProgressBar={changeProgressBar}
+                  />
+                }
+              />
+            </Routes>
+          </BrowserRouter>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

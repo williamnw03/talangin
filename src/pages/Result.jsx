@@ -8,6 +8,11 @@ import ResultLists from "../components/ResultLists";
 const Result = (props) => {
   const navigation = useNavigate();
 
+  // change progress
+  useEffect(() => {
+    props.changeProgressBar(6);
+  }, []);
+
   // Check page status
   useEffect(() => {
     if (!props.pageStatus.result) {

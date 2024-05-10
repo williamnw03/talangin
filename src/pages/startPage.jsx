@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import DetailsTable from "../components/DetailsTable";
 
 const StartPage = (props) => {
+  // change progress
+  useEffect(() => {
+    props.changeProgressBar(0);
+  }, []);
+
   return (
     <>
       <div className="w-full xs:w-2/3 md:w-2/5 lg:w-1/3 xl:w-1/4">

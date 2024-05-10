@@ -20,6 +20,11 @@ import { PlusLg } from "react-bootstrap-icons";
 const ItemList = (props) => {
   const navigation = useNavigate();
 
+  // change progress
+  useEffect(() => {
+    props.changeProgressBar(3);
+  }, []);
+
   // Check page status
   useEffect(() => {
     if (!props.pageStatus.itemList) {
