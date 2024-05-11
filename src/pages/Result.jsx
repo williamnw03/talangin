@@ -36,10 +36,23 @@ const Result = (props) => {
     props.changePageStatus("linkBoth", false);
     props.changePageStatus("result", false);
 
+    // Remove all data
     dispatch(groupActions.changeName(""));
     dispatch(memberActions.removeAllMembers());
     dispatch(itemActions.removeAllItems());
     dispatch(extraChargeActions.removeAllExtraCharges());
+
+    // Remove all input data
+    // Member
+    dispatch(memberActions.changeName(""));
+    // Items
+    dispatch(itemActions.changeName(""));
+    dispatch(itemActions.changeTotalPrice(0));
+    dispatch(itemActions.changeQuantity(0));
+    // Extra Charges
+    dispatch(extraChargeActions.changeName(""));
+    dispatch(extraChargeActions.changeTotalPrice(0));
+    dispatch(extraChargeActions.changeType(""));
   };
 
   // Members
