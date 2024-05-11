@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -51,6 +51,7 @@ const MemberName = (props) => {
       const member = { ...memberTemp };
       member.id = id;
       member.name = name;
+      dispatch(memberActions.changeName(""));
       dispatch(memberActions.addMember(member));
     }
   };

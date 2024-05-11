@@ -80,7 +80,7 @@ const DetailsTable = (props) => {
                     <td className="p-4 border border-slate-400">
                       {extra.type == "extra-percent" ? (
                         <NumericFormat
-                          value={extra.pricePercentage}
+                          value={extra.percentage}
                           thousandSeparator=","
                           allowNegative={false}
                           displayType="text"

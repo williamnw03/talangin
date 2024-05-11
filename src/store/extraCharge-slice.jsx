@@ -39,6 +39,10 @@ const extraChargeSlice = createSlice({
         (extraCharge) => extraCharge.id !== action.payload
       );
     },
+
+    removeAllExtraCharges: (state, action) => {
+      state.extraCharges = [];
+    },
   },
 });
 

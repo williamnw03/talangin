@@ -28,6 +28,10 @@ const memberSlice = createSlice({
       );
     },
 
+    removeAllMembers: (state, action) => {
+      state.members = [];
+    },
+
     changeItemsInc: (state, action) => {
       state.members = state.members.map((member) => {
         if (member.id == action.payload.idMember) {

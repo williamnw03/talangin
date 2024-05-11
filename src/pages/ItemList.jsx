@@ -103,7 +103,12 @@ const ItemList = (props) => {
       item.totalPrice = totalPrice;
       item.quantity = quantity;
       item.currentQuantity = quantity;
+
       dispatch(itemActions.addItem(item));
+
+      dispatch(itemActions.changeName(""));
+      dispatch(itemActions.changeTotalPrice(0));
+      dispatch(itemActions.changeQuantity(0));
     }
   };
 

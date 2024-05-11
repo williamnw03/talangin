@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Lists from "../components/Lists";
 
@@ -90,6 +90,10 @@ const ExtraCharge = (props) => {
       extraCharge.totalPrice = totalPrice;
       extraCharge.type = type;
       dispatch(extraChargeActions.addExtraCharge(extraCharge));
+
+      dispatch(extraChargeActions.changeName(""));
+      dispatch(extraChargeActions.changeTotalPrice(0));
+      dispatch(extraChargeActions.changeType(""));
     }
   };
 

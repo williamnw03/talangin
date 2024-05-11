@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import DetailsTable from "../components/DetailsTable";
 import NextBackButtons from "../components/NextBackButtons";
 import ResultLists from "../components/ResultLists";
 
+// Redux
+import { groupActions } from "../store/group-slice";
+import { memberActions } from "../store/member-slice";
+import { itemActions } from "../store/item-slice";
+import { extraChargeActions } from "../store/extraCharge-slice";
+
 const Result = (props) => {
   const navigation = useNavigate();
+  const dispatch = useDispatch();
 
   // change progress
   useEffect(() => {
@@ -28,6 +35,11 @@ const Result = (props) => {
     props.changePageStatus("extraCharge", false);
     props.changePageStatus("linkBoth", false);
     props.changePageStatus("result", false);
+
+    dispatch(groupActions.changeName(""));
+    dispatch(memberActions.removeAllMembers());
+    dispatch(itemActions.removeAllItems());
+    dispatch(extraChargeActions.removeAllExtraCharges());
   };
 
   // Members

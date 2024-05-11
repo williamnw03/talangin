@@ -36,6 +36,10 @@ const itemSlice = createSlice({
       state.items = state.items.filter((item) => item.id !== action.payload);
     },
 
+    removeAllItems: (state, action) => {
+      state.items = [];
+    },
+
     currentQuantityInc: (state, action) => {
       state.items = state.items.map((item) => {
         if (item.id === action.payload) {

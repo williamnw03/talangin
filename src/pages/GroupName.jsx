@@ -7,6 +7,7 @@ import { groupActions } from "../store/group-slice";
 
 const GroupName = (props) => {
   const navigation = useNavigate();
+  const dispatch = useDispatch();
 
   // change progress
   useEffect(() => {
@@ -19,8 +20,6 @@ const GroupName = (props) => {
       navigation("/");
     }
   }, [props.pageStatus]);
-
-  const dispatch = useDispatch();
 
   // Group Name
   const groupName = useSelector((state) => state.group.name);
