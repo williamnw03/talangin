@@ -116,12 +116,7 @@ const ExtraCharge = (props) => {
 
   // next link
   const nextLink = (e) => {
-    if (!extraCharges.length) {
-      e.preventDefault();
-      props.changePageStatus("linkBoth", false);
-    } else {
-      props.changePageStatus("linkBoth", true);
-    }
+    props.changePageStatus("linkBoth", true);
   };
 
   return (
@@ -130,6 +125,9 @@ const ExtraCharge = (props) => {
         <h1 className="text-3xl font-light text-center text-firstColor md:text-4xl">
           Write on your <span className=" font-semibold">Extra Charges</span>
         </h1>
+        <h2 className="text-lg font-light text-center text-firstColor md:text-xl">
+          *Optional
+        </h2>
         <div className="flex flex-col gap-2 mt-4 w-full text-firstColor md:flex-row md:items-start">
           <div className="flex-1 basis-2/5">
             <label htmlFor="name" className="font-semibold">
@@ -172,6 +170,7 @@ const ExtraCharge = (props) => {
               value={extraChargeTotalPrice}
               thousandSeparator=","
               allowNegative={false}
+              autoComplete="off"
             />
           </div>
 

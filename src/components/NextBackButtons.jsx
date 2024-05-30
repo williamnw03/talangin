@@ -15,7 +15,7 @@ const NextBackButtons = ({ next, back, nextLink }) => {
         className=" inline-block bg-firstColor text-offWhite font-medium p-3 px-6 mt-3 rounded-2xl w-max text-center hover:bg-thirdColor transition-colors"
         onClick={nextLink}
       >
-        Next
+        {next == "/" ? "Star Over" : "Next"}
       </Link>
     </div>
   );

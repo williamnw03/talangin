@@ -180,6 +180,7 @@ const ItemList = (props) => {
               value={itemTotalPrice}
               thousandSeparator=","
               allowNegative={false}
+              autoComplete="off"
             />
           </div>
 
@@ -197,6 +198,7 @@ const ItemList = (props) => {
               value={itemQuantity}
               thousandSeparator=","
               allowNegative={false}
+              autoComplete="off"
             />
           </div>
 

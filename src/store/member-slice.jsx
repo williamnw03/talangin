@@ -19,7 +19,15 @@ const memberSlice = createSlice({
     },
 
     addMember: (state, action) => {
-      state.members.push(action.payload);
+      // Change if its not exist yet
+      if (
+        !state.members.find(
+          (member) =>
+            member.name.toUpperCase() == action.payload.name.toUpperCase()
+        )
+      ) {
+        state.members.push(action.payload);
+      }
     },
 
     removeMember: (state, action) => {

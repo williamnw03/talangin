@@ -31,7 +31,14 @@ const extraChargeSlice = createSlice({
     },
 
     addExtraCharge: (state, action) => {
-      state.extraCharges.push(action.payload);
+      if (
+        !state.extraCharges.find(
+          (extraCharge) =>
+            extraCharge.name.toUpperCase() == action.payload.name.toUpperCase()
+        )
+      ) {
+        state.extraCharges.push(action.payload);
+      }
     },
 
     removeExtraCharge: (state, action) => {

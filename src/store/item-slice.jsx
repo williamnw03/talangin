@@ -29,7 +29,13 @@ const itemSlice = createSlice({
     },
 
     addItem: (state, action) => {
-      state.items.push(action.payload);
+      if (
+        !state.items.find(
+          (item) => item.name.toUpperCase() == action.payload.name.toUpperCase()
+        )
+      ) {
+        state.items.push(action.payload);
+      }
     },
 
     removeItem: (state, action) => {
