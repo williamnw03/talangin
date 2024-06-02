@@ -7,6 +7,8 @@ const StartPage = (props) => {
     props.changeProgressBar(0);
   }, []);
 
+  console.log("test");
+
   return (
     <>
       <div className="w-full xs:w-2/3 md:w-2/5 lg:w-1/3 xl:w-1/4">
