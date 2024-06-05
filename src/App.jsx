@@ -10,6 +10,7 @@ import Result from "./pages/Result.jsx";
 // Router
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import NotFound from "./pages/NotFound.jsx";
 
 function App() {
   const [pageStatus, setPageStatus] = useState({
@@ -121,6 +122,8 @@ function App() {
                   />
                 }
               />
+
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
         </div>

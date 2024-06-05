@@ -55,6 +55,11 @@ const Result = (props) => {
     dispatch(extraChargeActions.changeType(""));
   };
 
+  // Group
+  const groupName = useSelector((state) => state.group.name);
+
+  console.log(groupName);
+
   // Members
   const members = useSelector((state) => state.member.members);
 
@@ -169,7 +174,7 @@ const Result = (props) => {
           <span className=" font-semibold">Result</span>
         </h1>
         <p className="mt-4 text-firstColor">
-          Group Name : <span className="font-semibold">Power Rangers</span>
+          Group Name : <span className="font-semibold">{groupName}</span>
         </p>
 
         <ResultLists members={newMembers} changeShowDetail={changeShowDetail} />
