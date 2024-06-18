@@ -12,7 +12,7 @@ const LinkLists = (props) => {
   const items = useSelector((state) => state.item.items);
 
   return (
-    <div className="flex flex-col gap-6 w-full bg-firstColor p-4 mt-4 rounded-md">
+    <div className="flex flex-col gap-6 w-full h-1/2 overflow-y-auto  bg-firstColor p-4 mt-4 rounded-md">
       {members.map((member) => {
         return (
           <LinkList
