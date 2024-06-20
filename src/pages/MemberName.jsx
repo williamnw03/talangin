@@ -85,7 +85,7 @@ const MemberName = (props) => {
 
   return (
     <>
-      <div className="flex flex-col xs:w-4/5 md:w-2/4 lg:w-2/5">
+      <div className="flex flex-col h-full xs:w-4/5 md:w-2/4 lg:w-2/5">
         <h1 className="text-3xl font-light text-center text-firstColor md:text-4xl">
           Write on your <span className=" font-semibold">Members</span>
         </h1>

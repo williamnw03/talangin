@@ -49,7 +49,7 @@ function App() {
         className={`fixed top-full right-0 -translate-y-full bg-gradient-to-r from-firstColor to-secondColor h-3 transition-all duration-1000`}
         style={{ width: `${progressBar}%` }}
       ></div>
-      <div className="min-h-screen flex pt-8">
+      <div className="h-screen flex pt-8">
         <div className="flex flex-col w-full p-6 xs:items-center">
           <BrowserRouter>
             <Routes>
