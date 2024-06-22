@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 // Redux
 import { useDispatch, useSelector } from "react-redux";
 import { memberActions } from "../store/member-slice";
+import { itemActions } from "../store/item-slice";
 
 // Id Generate
 import generateUniqueId from "generate-unique-id";
@@ -71,6 +72,17 @@ const MemberName = (props) => {
     if (members.length == 1) {
       props.changePageStatus("itemList", false);
     }
+
+    // Add back currentQuantity of Items
+    const member = members.find((member) => member.id === id);
+    member.items.forEach((item) => {
+      dispatch(
+        itemActions.addCurrentQuantity({
+          id: item.id,
+          currentQuantity: item.currentQuantity,
+        })
+      );
+    });
   };
 
   // next link

@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// Quantity is Base Value
+// Current Quantity is Changeable Value
+
 const itemSlice = createSlice({
   name: "item",
   initialState: {
@@ -64,6 +67,21 @@ const itemSlice = createSlice({
           // Stop decreasing when it is reach 0
           if (item.currentQuantity <= 0) return item;
           return { ...item, currentQuantity: item.currentQuantity - 1 };
+        } else {
+          return item;
+        }
+      });
+    },
+
+    addCurrentQuantity: (state, action) => {
+      console.log(action.payload);
+      state.items = state.items.map((item) => {
+        if (item.id === action.payload.id) {
+          return {
+            ...item,
+            currentQuantity:
+              item.currentQuantity + action.payload.currentQuantity,
+          };
         } else {
           return item;
         }
