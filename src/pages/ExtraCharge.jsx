@@ -213,7 +213,7 @@ const ExtraCharge = (props) => {
             </div>
           </div>
 
-          <div className="">
+          <div>
             <label className="font-semibold hidden md:block md:invisible">
               None
             </label>

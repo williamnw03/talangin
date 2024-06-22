@@ -202,12 +202,14 @@ const ItemList = (props) => {
             />
           </div>
 
-          <button
-            className="flex justify-center items-center bg-firstColor text-offWhite text-3xl h-11 aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity"
-            onClick={() => addItem(itemName, itemTotalPrice, itemQuantity)}
-          >
-            <PlusLg />
-          </button>
+          <div>
+            <button
+              className="flex justify-center items-center bg-firstColor text-offWhite text-3xl w-full h-11 aspect-square rounded-md opacity-85 hover:opacity-100 transition-opacity"
+              onClick={() => addItem(itemName, itemTotalPrice, itemQuantity)}
+            >
+              <PlusLg />
+            </button>
+          </div>
         </div>
         <Lists type="item-list" data={items} remove={removeItem} />
         <NextBackButtons
