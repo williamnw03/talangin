@@ -99,8 +99,8 @@ const Result = (props) => {
       const extraDetailPayment = [];
 
       member.items.forEach((item) => {
-        const priceEach = Math.ceil(item.totalPrice / item.quantity);
-        const price = Math.ceil(priceEach * item.currentQuantity);
+        const priceEach = item.totalPrice / item.quantity;
+        const price = priceEach * item.currentQuantity;
 
         totalPayment = totalPayment + price;
         itemDetailPayment.push({
