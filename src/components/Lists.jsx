@@ -9,7 +9,7 @@ import { NumericFormat } from "react-number-format";
 const Lists = (props) => {
   console.log(props.data);
   return (
-    <div className="flex flex-col gap-2 w-full max-h-[50%] overflow-y-auto bg-firstColor p-4 mt-4 rounded-md">
+    <div className="flex flex-col gap-2 w-full max-h-72 overflow-y-auto bg-firstColor p-4 mt-4 rounded-md">
       {props.data.length ? (
         props.data.map((e) => {
           let content;

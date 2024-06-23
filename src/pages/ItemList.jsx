@@ -144,7 +144,7 @@ const ItemList = (props) => {
 
   return (
     <>
-      <div className="flex flex-col max-h-full xs:w-4/5 md:w-3/4 lg:w-1/2">
+      <div className="flex flex-col xs:w-4/5 md:w-3/4 lg:w-1/2">
         <h1 className="text-3xl text-center font-light text-firstColor md:text-4xl">
           Write on your <span className=" font-semibold">Items</span>
         </h1>
