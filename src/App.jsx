@@ -42,11 +42,11 @@ function App() {
   return (
     <>
       <div
-        className={`fixed top-0 bg-gradient-to-r from-firstColor to-secondColor h-3 transition-all duration-1000`}
+        className={`fixed z-10 top-0 bg-gradient-to-r from-firstColor to-secondColor h-3 transition-all duration-1000`}
         style={{ width: `${progressBar}%` }}
       ></div>
       <div
-        className={`fixed top-full right-0 -translate-y-full bg-gradient-to-r from-firstColor to-secondColor h-3 transition-all duration-1000`}
+        className={`fixed z-30 top-full right-0 -translate-y-full bg-gradient-to-r from-firstColor to-secondColor h-3 transition-all duration-1000`}
         style={{ width: `${progressBar}%` }}
       ></div>
       <div className="h-screen flex pt-8">

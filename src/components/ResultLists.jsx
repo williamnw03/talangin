@@ -7,7 +7,7 @@ import { NumericFormat } from "react-number-format";
 
 const ResultLists = (props) => {
   return (
-    <div className="flex flex-col gap-6 w-full bg-firstColor p-4 rounded-md">
+    <div className="flex flex-col gap-6 w-full max-h-[50%] overflow-auto bg-firstColor p-4 rounded-md">
       {props.members.map((member) => {
         return (
           <ResultList

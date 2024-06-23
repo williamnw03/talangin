@@ -112,7 +112,7 @@ const LinkList = (props) => {
               cursor: "pointer",
             }),
           }}
-          isSearchable={true}
+          isSearchable={false}
           placeholder="Choose"
           value="Choose"
           closeMenuOnSelect={false}

@@ -166,7 +166,7 @@ const Result = (props) => {
       />
 
       <div
-        className={`flex flex-col ${
+        className={`flex flex-col h-full ${
           showDetail ? "blur-sm" : "blur-none"
         } xs:w-4/5 md:w-3/4 lg:w-1/2`}
       >

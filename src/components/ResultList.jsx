@@ -8,7 +8,7 @@ const ResultList = (props) => {
     <div className="flex flex-col items-start gap-2 xs:flex-row">
       <div className="flex flex-col w-full gap-2 xs:w-3/5">
         <div className="flex justify-between items-center w-full min-h-11 px-4 py-1 bg-offWhite text-firstColor rounded-md">
-          <p className="text-md text-light text-center break-all">
+          <p className="w-full text-md text-light text-center break-all">
             {props.name}
           </p>
         </div>
