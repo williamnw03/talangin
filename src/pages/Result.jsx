@@ -114,8 +114,8 @@ const Result = (props) => {
 
       extraCharges.forEach((e) => {
         if (e.type.value == "evenly") {
-          const price = Math.ceil(e.totalPrice / members.length);
-          totalPayment = Math.ceil(totalPayment + price);
+          const price = e.totalPrice / members.length;
+          totalPayment = totalPayment + price;
 
           extraDetailPayment.push({
             id: e.id,
@@ -124,8 +124,8 @@ const Result = (props) => {
             price: price,
           });
         } else {
-          const price = Math.ceil(totalPayment * (e.totalPrice / 100));
-          totalPayment = Math.ceil(totalPayment + price);
+          const price = totalPayment * (e.totalPrice / 100);
+          totalPayment = totalPayment + price;
 
           extraDetailPayment.push({
             id: e.id,
