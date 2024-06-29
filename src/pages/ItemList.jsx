@@ -109,6 +109,9 @@ const ItemList = (props) => {
       dispatch(itemActions.changeName(""));
       dispatch(itemActions.changeTotalPrice(0));
       dispatch(itemActions.changeQuantity(0));
+    } else {
+      // Show Alert
+      props.changeShowAlert("Fill the blank!");
     }
   };
 
@@ -137,6 +140,8 @@ const ItemList = (props) => {
     if (!items.length) {
       e.preventDefault();
       props.changePageStatus("extraCharge", false);
+      // Show Alert
+      props.changeShowAlert("Atleat 1 item!");
     } else {
       props.changePageStatus("extraCharge", true);
     }

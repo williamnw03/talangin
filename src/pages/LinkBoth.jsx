@@ -31,6 +31,8 @@ const LinkBoth = (props) => {
     if (check.length) {
       e.preventDefault();
       props.changePageStatus("result", false);
+      // Show Alert
+      props.changeShowAlert("All items must be linked!");
     } else {
       props.changePageStatus("result", true);
     }

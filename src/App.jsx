@@ -7,6 +7,9 @@ import ExtraCharge from "./pages/ExtraCharge.jsx";
 import LinkBoth from "./pages/LinkBoth.jsx";
 import Result from "./pages/Result.jsx";
 
+// Components
+import Alert from "./components/Alert.jsx";
+
 // Router
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
@@ -39,8 +42,43 @@ function App() {
     setProgressBar(percent);
   };
 
+  // Alert
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertText, setAlertText] = useState("");
+  const [alertTimeoutID, setAlertTimeoutID] = useState("");
+
+  const changeShowAlert = (text) => {
+    // Remove alert with button
+    if (!text) {
+      setAlertText(text);
+      setShowAlert(false);
+      clearTimeout(alertTimeoutID);
+      return false;
+    }
+
+    // Remove timeout
+    if (showAlert) {
+      clearTimeout(alertTimeoutID);
+    }
+
+    setAlertText(text);
+    setShowAlert(true);
+
+    const hidden = setTimeout(() => {
+      setShowAlert(false);
+      console.log("SELESAI");
+    }, 2000);
+
+    setAlertTimeoutID(hidden);
+  };
+
   return (
     <>
+      {showAlert ? (
+        <Alert text={alertText} changeShowAlert={changeShowAlert} />
+      ) : (
+        false
+      )}
       <div
         className={`fixed z-10 top-0 bg-gradient-to-r from-firstColor to-secondColor h-3 transition-all duration-1000`}
         style={{ width: `${progressBar}%` }}
@@ -69,6 +107,7 @@ function App() {
                     pageStatus={pageStatus}
                     changePageStatus={changePageStatus}
                     changeProgressBar={changeProgressBar}
+                    changeShowAlert={changeShowAlert}
                   />
                 }
               />
@@ -79,6 +118,7 @@ function App() {
                     pageStatus={pageStatus}
                     changePageStatus={changePageStatus}
                     changeProgressBar={changeProgressBar}
+                    changeShowAlert={changeShowAlert}
                   />
                 }
               />
@@ -89,6 +129,7 @@ function App() {
                     pageStatus={pageStatus}
                     changePageStatus={changePageStatus}
                     changeProgressBar={changeProgressBar}
+                    changeShowAlert={changeShowAlert}
                   />
                 }
               />
@@ -99,6 +140,7 @@ function App() {
                     pageStatus={pageStatus}
                     changePageStatus={changePageStatus}
                     changeProgressBar={changeProgressBar}
+                    changeShowAlert={changeShowAlert}
                   />
                 }
               />
@@ -109,6 +151,7 @@ function App() {
                     pageStatus={pageStatus}
                     changePageStatus={changePageStatus}
                     changeProgressBar={changeProgressBar}
+                    changeShowAlert={changeShowAlert}
                   />
                 }
               />

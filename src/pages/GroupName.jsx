@@ -40,6 +40,11 @@ const GroupName = (props) => {
       props.changePageStatus("memberName", true);
       navigation("/membername");
     }
+
+    if (e.key === "Enter" && e.target.value == "") {
+      // Show Alert
+      props.changeShowAlert("Fill the blank!");
+    }
   };
 
   // next link
@@ -47,6 +52,8 @@ const GroupName = (props) => {
     if (!groupName.length) {
       e.preventDefault();
       props.changePageStatus("memberName", false);
+      // Show Alert
+      props.changeShowAlert("Fill the blank!");
     } else {
       props.changePageStatus("memberName", true);
     }

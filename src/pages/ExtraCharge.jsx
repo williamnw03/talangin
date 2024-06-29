@@ -94,6 +94,9 @@ const ExtraCharge = (props) => {
       dispatch(extraChargeActions.changeName(""));
       dispatch(extraChargeActions.changeTotalPrice(0));
       dispatch(extraChargeActions.changeType(""));
+    } else {
+      // Show Alert
+      props.changeShowAlert("Fill the blank!");
     }
   };
 

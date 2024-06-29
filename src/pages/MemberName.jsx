@@ -48,12 +48,22 @@ const MemberName = (props) => {
 
   // Add New Member
   const addMember = (name) => {
+    if (
+      members.find((member) => member.name.toUpperCase() == name.toUpperCase())
+    ) {
+      // Show Alert
+      props.changeShowAlert("Can't use a same name!");
+    }
+
     if (name) {
       const member = { ...memberTemp };
       member.id = id;
       member.name = name;
       dispatch(memberActions.changeName(""));
       dispatch(memberActions.addMember(member));
+    } else {
+      // Show Alert
+      props.changeShowAlert("Fill the blank!");
     }
   };
 
@@ -90,6 +100,8 @@ const MemberName = (props) => {
     if (!members.length) {
       e.preventDefault();
       props.changePageStatus("itemList", false);
+      // Show Alert
+      props.changeShowAlert("Atleast 1 member!");
     } else {
       props.changePageStatus("itemList", true);
     }
