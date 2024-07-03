@@ -83,6 +83,13 @@ const ExtraCharge = (props) => {
 
   // Add New Extra Charge
   const addExtraCharge = (name, totalPrice, type) => {
+    if (
+      extraCharges.find((ec) => ec.name.toUpperCase() == name.toUpperCase())
+    ) {
+      // Show Alert
+      props.changeShowAlert("Can't use a same name!");
+    }
+
     if (name && totalPrice && type) {
       const extraCharge = { ...extraChargeTemp };
       extraCharge.id = id;

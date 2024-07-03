@@ -96,6 +96,11 @@ const ItemList = (props) => {
 
   // Add New Item
   const addItem = (name, totalPrice, quantity) => {
+    if (items.find((item) => item.name.toUpperCase() == name.toUpperCase())) {
+      // Show Alert
+      props.changeShowAlert("Can't use a same name!");
+    }
+
     if (name && totalPrice && quantity) {
       const item = { ...itemTemp };
       item.id = id;
