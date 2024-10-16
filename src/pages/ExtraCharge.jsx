@@ -91,6 +91,13 @@ const ExtraCharge = (props) => {
     }
 
     if (name && totalPrice && type) {
+      // Decimal Check
+      if (totalPrice.toString().includes(".") && type.value === "evenly") {
+        // Show Alert
+        props.changeShowAlert("$ Type can not be decimal");
+        return false;
+      }
+
       const extraCharge = { ...extraChargeTemp };
       extraCharge.id = id;
       extraCharge.name = name;

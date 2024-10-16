@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -90,7 +90,6 @@ const ItemList = (props) => {
     if (v.floatValue.length > 1 && v.floatValue[0] === "0") {
       return false;
     }
-
     dispatch(itemActions.changeQuantity(v.floatValue));
   };
 
@@ -102,6 +101,15 @@ const ItemList = (props) => {
     }
 
     if (name && totalPrice && quantity) {
+      // Decimal Check
+      if (
+        totalPrice.toString().includes(".") ||
+        quantity.toString().includes(".")
+      ) {
+        // Show Alert
+        props.changeShowAlert("Total Price & Quantity can not be decimal!");
+        return false;
+      }
       const item = { ...itemTemp };
       item.id = id;
       item.name = name;
