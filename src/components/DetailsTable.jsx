@@ -7,11 +7,15 @@ import { NumericFormat } from "react-number-format";
 const DetailsTable = (props) => {
   return (
     <div
-      className={`z-30 transition-all duration-300 ${
+      className={`z-30 transition-all duration-500 ${
         props.showDetail ? "visible opacity-100" : "invisible opacity-0"
       }`}
     >
-      <div className="fixed z-20 top-0 left-0 w-full h-screen p-5">
+      <div
+        className={`transition-all delay-500 duration-500 fixed z-20 top-0 left-0 w-full h-screen p-5 ${
+          props.showDetail ? "scale-100" : "scale-0"
+        }`}
+      >
         <div
           className={`w-full bg-firstColor px-10 pb-10 rounded-2xl relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  border-offWhite border-4 xs:w-4/5 md:w-3/4 lg:w-1/2`}
         >
@@ -134,7 +138,7 @@ const DetailsTable = (props) => {
           </div>
         </div>
       </div>
-      <div className="w-screen h-screen bg-[#001016] fixed top-0 left-0 opacity-70 z-10"></div>
+      <div className="w-screen h-screen bg-offWhite fixed top-0 left-0 opacity-70 z-10"></div>
     </div>
   );
 };
